@@ -1,3 +1,5 @@
+'use client';
+
 import { displayFont } from '@/config/fonts';
 import {
   AtSymbolIcon,

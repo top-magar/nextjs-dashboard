@@ -9,7 +9,7 @@ import {
   Sparkles,
 } from "lucide-react"
 import { User } from '@/lib/definitions';
-import { logout } from "@/app/lib/actions"
+import { logout } from "@/lib/actions"
 
 import {
   Avatar,

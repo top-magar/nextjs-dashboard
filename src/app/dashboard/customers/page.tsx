@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/table"
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { CustomersTableType } from '@/lib/definitions';
+import { FormattedCustomersTable } from '@/lib/definitions';
 
 export const metadata: Metadata = {
   title: 'Customers',
@@ -39,7 +39,7 @@ export default async function Page(props: {
           <div className="inline-block min-w-full align-middle">
             <div className="rounded-lg bg-gray-50 p-2 md:pt-0">
               <div className="md:hidden">
-                {customers?.map((customer: CustomersTableType) => (
+                {customers?.map((customer: FormattedCustomersTable) => (
                   <Card
                     key={customer.id}
                     className="mb-2 w-full"
@@ -94,7 +94,7 @@ export default async function Page(props: {
                 </TableHeader>
 
                 <TableBody className="bg-white">
-                  {customers.map((customer: CustomersTableType) => (
+                  {customers.map((customer: FormattedCustomersTable) => (
                     <TableRow key={customer.id} className="group">
                       <TableCell className="whitespace-nowrap py-5 pl-4 pr-3 text-sm text-black group-first-of-type:rounded-md group-last-of-type:rounded-md sm:pl-6">
                         <div className="flex items-center gap-3">

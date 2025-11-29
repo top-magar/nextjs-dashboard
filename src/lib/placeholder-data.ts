@@ -48,7 +48,9 @@ const customers = [
   },
 ];
 
-const invoices = [
+import { Invoice } from './definitions';
+
+const invoices: Omit<Invoice, 'id'>[] = [
   {
     customer_id: customers[0].id,
     amount: 15795,
