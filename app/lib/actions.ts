@@ -132,5 +132,6 @@ export async function authenticate(
 }
 
 export async function logout() {
+  'use server';
   await signOut({ redirectTo: '/' });
 }
