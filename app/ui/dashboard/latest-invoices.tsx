@@ -1,62 +1,64 @@
 import { ArrowPathIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
-import Image from 'next/image';
-import { displayFont } from '../fonts';
-import { LatestInvoice } from '../../lib/definitions';
-import { fetchLatestInvoices } from '../../lib/data';
+import { displayFont } from '@/app/ui/fonts';
+import { fetchLatestInvoices } from '@/app/lib/data';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+
 export default async function LatestInvoices() {
   const latestInvoices = await fetchLatestInvoices();
   return (
-    <div className="flex w-full flex-col md:col-span-4">
-      <h2 className={`${displayFont.className} mb-4 text-xl md:text-2xl`}>
-        Latest Invoices
-      </h2>
-      <div className="flex grow flex-col justify-between rounded-xl bg-gray-50 p-4">
-        {/* NOTE: Uncomment this code in Chapter 7 */}
+    <Card className="flex w-full flex-col md:col-span-4">
+      <CardHeader>
+        <CardTitle className={`${displayFont.className} text-xl md:text-2xl`}>
+          Latest Invoices
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="flex grow flex-col justify-between rounded-xl bg-gray-50 p-4">
+          {/* NOTE: Uncomment this code in Chapter 7 */}
 
-        <div className="bg-white px-6">
-          {latestInvoices.map((invoice, i) => {
-            return (
-              <div
-                key={invoice.id}
-                className={clsx(
-                  'flex flex-row items-center justify-between py-4',
-                  {
-                    'border-t': i !== 0,
-                  },
-                )}
-              >
-                <div className="flex items-center">
-                  <Image
-                    src={invoice.image_url}
-                    alt={`${invoice.name}'s profile picture`}
-                    className="mr-4 rounded-full"
-                    width={32}
-                    height={32}
-                  />
-                  <div className="min-w-0">
-                    <p className="truncate text-sm font-semibold md:text-base">
-                      {invoice.name}
-                    </p>
-                    <p className="hidden text-sm text-gray-500 sm:block">
-                      {invoice.email}
-                    </p>
-                  </div>
-                </div>
-                <p
-                  className={`${displayFont.className} truncate text-sm font-medium md:text-base`}
+          <div className="bg-white px-6">
+            {latestInvoices.map((invoice, i) => {
+              return (
+                <div
+                  key={invoice.id}
+                  className={clsx(
+                    'flex flex-row items-center justify-between py-4',
+                    {
+                      'border-t': i !== 0,
+                    },
+                  )}
                 >
-                  {invoice.amount}
-                </p>
-              </div>
-            );
-          })}
+                  <div className="flex items-center">
+                    <Avatar className="mr-4 h-8 w-8">
+                      <AvatarImage src={invoice.image_url} alt={`${invoice.name}'s profile picture`} />
+                      <AvatarFallback>{invoice.name[0]}</AvatarFallback>
+                    </Avatar>
+                    <div className="min-w-0">
+                      <p className="truncate text-sm font-semibold md:text-base">
+                        {invoice.name}
+                      </p>
+                      <p className="hidden text-sm text-gray-500 sm:block">
+                        {invoice.email}
+                      </p>
+                    </div>
+                  </div>
+                  <p
+                    className={`${displayFont.className} truncate text-sm font-medium md:text-base`}
+                  >
+                    {invoice.amount}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+          <div className="flex items-center pb-2 pt-6">
+            <ArrowPathIcon className="h-5 w-5 text-gray-500" />
+            <h3 className="ml-2 text-sm text-gray-500 ">Updated just now</h3>
+          </div>
         </div>
-        <div className="flex items-center pb-2 pt-6">
-          <ArrowPathIcon className="h-5 w-5 text-gray-500" />
-          <h3 className="ml-2 text-sm text-gray-500 ">Updated just now</h3>
-        </div>
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
 }

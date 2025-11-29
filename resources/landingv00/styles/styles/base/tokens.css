@@ -1,0 +1,1226 @@
+/* Generated Design Tokens */
+
+:root {
+  /* Landing Page Exact Colors (HSL) */
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+
+  /* Primary: #5423E7 (Hue 255, Sat 83%, Light 52%) */
+  --primary: 255 83% 52%;
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 255 83% 52%;
+  --radius: 0.5rem;
+  /* Primitives */
+
+  /* Semantics (Light) */
+  --color-text-primary: rgb(18 18 23);
+  --color-text-body: rgb(18 18 23);
+  --surface-canvas: rgb(255 255 255);
+  --surface-overlay: rgb(255 255 255);
+  --color-text-secondary: rgb(108 108 137);
+  --color-background-button-primary-normal: rgb(112 71 235);
+  --color-background-button-primary-hover: rgb(84 35 231);
+  --color-background-button-primary-disabled: rgb(198 182 247);
+  --color-icon-outline-primary: rgb(255 255 255);
+  --color-icon-outline-secondary: rgb(138 138 163);
+  --color-icon-outline-primary-disabled: rgb(255 255 255);
+  --color-background-button-outine-hover: rgb(247 247 248);
+  --color-background-button-outline-normal: rgb(255 255 255);
+  --color-background-button-gray-normal: rgb(247 247 248);
+  --color-background-button-gray-hover: rgb(235 235 239);
+  --color-background-button-primary-desctructive: rgb(245 61 107);
+  --color-background-button-primary-destructive-hover: rgb(243 22 78);
+  --color-background-button-primary-desctructive-disabled: rgb(251 177 196);
+  --color-text-button-primary-normal: rgb(255 255 255);
+  --color-text-button-primary-disabled: rgb(255 255 255);
+  --color-border-button-outline-normal: rgb(209 209 219);
+  --color-border-button-outline-disabled: rgb(235 235 239);
+  --color-icon-outline-secondary-disabled: rgb(209 209 219);
+  --color-text-button-normal: rgb(18 18 23);
+  --color-text-button-disabled: rgb(169 169 188);
+  --color-border-button-outline-hover: rgb(209 209 219);
+  --color-background-button-tertiary-hover: rgb(247 247 248);
+  --color-background-button-tertiary-normal: rgb(255 255 255);
+  --color-text-button-link-color: rgb(112 71 235);
+  --color-text-button-link-color-disabled: rgb(169 145 243);
+  --color-text-button-link-color-hover: rgb(84 35 231);
+  --color-icon-outline-discovery: rgb(112 71 235);
+  --color-icon-outline-discovery-hover: rgb(84 35 231);
+  --color-icon-outline-discovery-disabled: rgb(169 145 243);
+  --color-border-button-outline-destructive: rgb(251 177 196);
+  --color-border-button-outline-destructive-disabled: rgb(253 216 225);
+  --color-icon-outline-destructive: rgb(213 11 62);
+  --color-icon-outline-destructive-hover: rgb(175 9 50);
+  --color-icon-outline-destructive-disabled: rgb(249 139 166);
+  --color-text-button-destructive: rgb(213 11 62);
+  --color-text-button-destructive-disabled: rgb(249 139 166);
+  --color-background-button-outline-destructive-hover: rgb(254 240 244);
+  --color-background-button-gray-destructive: rgb(254 240 244);
+  --color-background-button-gray-destructive-hover: rgb(253 216 225);
+  --color-background-button-tertiary-destructive-hover: rgb(254 240 244);
+  --color-text-button-destructive-hover: rgb(175 9 50);
+  --color-border-input-divider: rgb(235 235 239);
+  --color-border-input-divider-overlay: rgb(235 235 239);
+  --color-border-input-normal: rgb(209 209 219);
+  --color-icon-outline-secondary-active: rgb(18 18 23);
+  --color-background-accent-gray-bolder: rgb(247 247 248);
+  --color-icon-fill-secondary: rgb(209 209 219);
+  --color-text-accent-green: rgb(23 102 58);
+  --color-icon-fill-success: rgb(45 202 114);
+  --color-background-accent-gray: rgb(247 247 248);
+  --color-text-button-link-green: rgb(23 102 58);
+  --color-background-accent-green: rgb(238 251 244);
+  --color-text-accent-green-secondary: rgb(23 102 58);
+  --color-text-accent-blue: rgb(0 117 173);
+  --color-text-accent-blue-secondary: rgb(0 117 173);
+  --color-icon-fill-information: rgb(0 172 255);
+  --color-text-button-link-blue: rgb(0 117 173);
+  --color-background-accent-blue: rgb(240 250 255);
+  --color-background-accent-yellow: rgb(255 249 235);
+  --color-text-button-link-yellow: rgb(138 97 0);
+  --color-text-accent-yellow: rgb(138 97 0);
+  --color-text-accent-yellow-secondary: rgb(138 97 0);
+  --color-icon-fill-warning: rgb(255 194 51);
+  --color-background-accent-red: rgb(254 240 244);
+  --color-text-accent-red: rgb(213 11 62);
+  --color-text-accent-red-secondary: rgb(213 11 62);
+  --color-background-button-outline-active: rgb(255 255 255);
+  --color-border-neutral: rgb(209 209 219);
+  --color-border-primary: rgb(112 71 235);
+  --color-border-info: rgb(0 172 255);
+  --color-border-warning: rgb(255 194 51);
+  --color-border-success: rgb(45 202 114);
+  --color-border-destructive: rgb(245 61 107);
+  --color-icon-fill-destructive: rgb(245 61 107);
+  --color-icon-outline-success: rgb(30 135 76);
+  --color-icon-outline-information: rgb(0 117 173);
+  --color-icon-outline-warning: rgb(194 136 0);
+  --color-border-light: rgb(235 235 239);
+  --color-text-white: rgb(255 255 255);
+  --color-background-select-select-item-hover: rgb(247 247 248);
+  --color-text-disabled: rgb(169 169 188);
+  --color-icon-checkbox-checked: rgb(112 71 235);
+  --color-icon-checkbox-checked-disabled: rgb(209 209 219);
+  --color-border-input-hover: rgb(169 169 188);
+  --color-icon-outline-secondary-hover: rgb(85 85 109);
+  --color-icon-fill-discovery: rgb(112 71 235);
+  --color-icon-status-grey: rgb(209 209 219);
+  --color-icon-status-green: rgb(45 202 114);
+  --color-icon-status-red: rgb(245 61 107);
+  --color-background-avatar-placeholder: rgb(235 235 239);
+  --color-icon-avatar-placeholder: rgb(169 169 188);
+  --color-background-red: rgb(245 61 107);
+  --color-background-blue: rgb(0 172 255);
+  --color-background-pink: rgb(247 95 222);
+  --color-background-orange: rgb(255 125 82);
+  --color-background-green: rgb(45 202 114);
+  --color-background-yellow: rgb(255 194 51);
+  --color-background-purple: rgb(112 71 235);
+  --color-background-avatar-more-label: rgb(209 209 219);
+  --color-text-accent-gray: rgb(63 63 80);
+  --color-text-accent-pink: rgb(165 8 140);
+  --color-text-accent-orange: rgb(184 46 0);
+  --color-text-accent-purple: rgb(67 22 202);
+  --color-background-accent-orange: rgb(255 242 238);
+  --color-background-accent-pink: rgb(254 236 251);
+  --color-background-accent-purple: rgb(244 241 253);
+  --color-icon-outline-orange: rgb(235 58 0);
+  --color-icon-outline-pink: rgb(219 11 185);
+  --color-border-checkbox-normal: rgb(209 209 219);
+  --color-border-checkbox-hover: rgb(169 169 188);
+  --color-border-checkbox-disabled: rgb(209 209 219);
+  --color-background-input-disabled: rgb(247 247 248);
+  --color-text-destructive: rgb(245 61 107);
+  --color-text-required: rgb(245 61 107);
+  --color-background-tooltip-body: rgb(112 71 235);
+  --color-icon-tooltip-normal: rgb(209 209 219);
+  --color-icon-tooltip-hover: rgb(112 71 235);
+  --color-icon-tooltip-active: rgb(112 71 235);
+  --color-border-menu-divider: rgb(235 235 239);
+  --color-background-input-disabled-overlay: rgb(247 247 248);
+  --color-background-switch-handle: rgb(255 255 255);
+  --color-background-switch-normal: rgb(209 209 219);
+  --color-background-switch-hover: rgb(169 169 188);
+  --color-background-switch-disabled: rgb(235 235 239);
+  --color-background-switch-active-normal: rgb(112 71 235);
+  --color-background-switch-active-hover: rgb(84 35 231);
+  --color-background-switch-handle-disabled: rgb(255 255 255);
+  --color-background-cursor-white: rgb(255 255 255);
+  --color-background-cursor-black: rgb(18 18 23);
+  --color-icon-fill-base: rgb(18 18 23);
+  --color-background-input-normal: rgb(255 255 255);
+  --color-background-input-focus: rgb(255 255 255);
+  --color-border-input-focus: rgb(112 71 235);
+  --color-border-input-disabled: rgb(209 209 219);
+  --color-border-input-destructive: rgb(245 61 107);
+  --color-border-input-divider-disabled: rgb(235 235 239);
+  --color-border-checkbox-checked: rgb(112 71 235);
+  --color-icon-checkbox-checked-radio-disabled: rgb(209 209 219);
+  --color-background-scrollbar-body: rgb(209 209 219);
+  --color-icon-fill-secondary-disabled: rgb(235 235 239);
+  --color-text-gray: rgb(18 18 23);
+  --color-background-accent-gray-md: rgb(235 235 239);
+  --color-border-base-component: rgb(112 71 235);
+  --color-border-accent-green: rgb(178 238 204);
+  --color-border-accent-orange: rgb(255 205 189);
+  --color-border-accent-red: rgb(251 177 196);
+  --color-border-accent-pink: rgb(252 197 243);
+  --color-border-accent-purple: rgb(198 182 247);
+  --color-border-accent-blue: rgb(173 228 255);
+  --color-border-accent-yellow: rgb(255 218 133);
+  --color-border-accent-gray: rgb(209 209 219);
+  --color-background-button-primary-gray-normal: rgb(18 18 23);
+  --color-background-button-primary-gray-hover: rgb(63 63 80);
+  --color-background-button-primary-gray-disabled: rgb(209 209 219);
+  --color-text-button-primary-gray-normal: rgb(255 255 255);
+  --color-icon-outline-primary-gray: rgb(255 255 255);
+  --color-background-progress-track-bar: rgb(235 235 239);
+  --color-background-progress-progress-bar: rgb(112 71 235);
+  --color-background-progress-progress-bar-green: rgb(45 202 114);
+  --color-background-progress-progress-bar-blue: rgb(0 172 255);
+  --color-background-progress-progress-bar-orange: rgb(255 125 82);
+  --color-background-progress-progress-bar-pink: rgb(247 95 222);
+  --color-background-progress-progress-bar-yellow: rgb(255 194 51);
+  --color-background-progress-progress-bar-red: rgb(245 61 107);
+  --color-background-progress-progress-bar-gray: rgb(18 18 23);
+  --color-background-slider-track-bar: rgb(235 235 239);
+  --color-background-slider-value-bar-normal: rgb(112 71 235);
+  --color-background-slider-value-bar-disabled: rgb(209 209 219);
+  --color-background-slider-handle-normal: rgb(255 255 255);
+  --color-border-slider-handle-normal: rgb(209 209 219);
+  --color-background-slider-handle-disabled: rgb(209 209 219);
+  --color-border-slider-handle-active: rgb(112 71 235);
+  --color-background-slider-tooltip: rgb(112 71 235);
+  --color-background-loading-track: rgb(235 235 239);
+  --color-background-loading-stroke: rgb(112 71 235);
+  --color-background-tab-fill-active: rgb(247 247 248);
+  --color-text-tab-fill-active: rgb(18 18 23);
+  --color-background-tab-fill-hover: rgb(247 247 248);
+  --color-text-tab-underline-active: rgb(112 71 235);
+  --color-border-tab-underline-hover: rgb(209 209 219);
+  --color-border-tab-underline-active: rgb(112 71 235);
+  --color-border-tab-border: rgb(235 235 239);
+  --color-text-tab-normal: rgb(108 108 137);
+  --color-text-tab-hover: rgb(18 18 23);
+  --color-background-tab-contained-hover: rgb(247 247 248);
+  --color-background-tab-contained-normal: rgb(255 255 255);
+  --color-background-menu-menu-item-hover: rgb(247 247 248);
+  --color-border-kbs-normal: rgb(209 209 219);
+  --color-border-kbs-disabled: rgb(235 235 239);
+}
+
+.dark {
+  /* Landing Page Dark Mode Colors (HSL) */
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 9.0%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+
+  /* Primary: #5423E7 (Hue 255, Sat 83%, Light 52%) - Same as Light Mode */
+  --primary: 255 83% 52%;
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 255 83% 52%;
+
+  /* Primitives (Dark Overrides if any - usually primitives are constant but sometimes adapted) */
+
+  /* Semantics (Dark) */
+  --color-text-primary: rgb(255 255 255);
+  --color-text-body: rgb(255 255 255 / 80%);
+  --surface-canvas: rgb(0 0 0);
+  --surface-overlay: rgb(41 41 41);
+  --color-text-secondary: rgb(255 255 255 / 50%);
+  --color-background-button-primary-normal: rgb(141 108 239);
+  --color-background-button-primary-hover: rgb(112 71 235);
+  --color-background-button-primary-disabled: rgb(141 108 239 / 50%);
+  --color-icon-outline-primary: rgb(255 255 255);
+  --color-icon-outline-secondary: rgb(255 255 255 / 50%);
+  --color-icon-outline-primary-disabled: rgb(255 255 255 / 40%);
+  --color-background-button-outine-hover: rgb(255 255 255 / 10%);
+  --color-background-button-outline-normal: rgb(0 0 0 / 0%);
+  --color-background-button-gray-normal: rgb(255 255 255 / 10%);
+  --color-background-button-gray-hover: rgb(255 255 255 / 20%);
+  --color-background-button-primary-desctructive: rgb(245 61 107);
+  --color-background-button-primary-destructive-hover: rgb(243 22 78);
+  --color-background-button-primary-desctructive-disabled: rgb(245 61 107 / 50%);
+  --color-text-button-primary-normal: rgb(255 255 255);
+  --color-text-button-primary-disabled: rgb(255 255 255 / 50%);
+  --color-border-button-outline-normal: rgb(255 255 255 / 20%);
+  --color-border-button-outline-disabled: rgb(255 255 255 / 20%);
+  --color-icon-outline-secondary-disabled: rgb(255 255 255 / 30%);
+  --color-text-button-normal: rgb(255 255 255);
+  --color-text-button-disabled: rgb(255 255 255 / 40%);
+  --color-border-button-outline-hover: rgb(255 255 255 / 10%);
+  --color-background-button-tertiary-hover: rgb(255 255 255 / 10%);
+  --color-background-button-tertiary-normal: rgb(0 0 0);
+  --color-text-button-link-color: rgb(141 108 239);
+  --color-text-button-link-color-disabled: rgb(141 108 239 / 50%);
+  --color-text-button-link-color-hover: rgb(169 145 243);
+  --color-icon-outline-discovery: rgb(141 108 239);
+  --color-icon-outline-discovery-hover: rgb(169 145 243);
+  --color-icon-outline-discovery-disabled: rgb(141 108 239 / 50%);
+  --color-border-button-outline-destructive: rgb(245 61 107);
+  --color-border-button-outline-destructive-disabled: rgb(136 7 39);
+  --color-icon-outline-destructive: rgb(245 61 107);
+  --color-icon-outline-destructive-hover: rgb(247 100 137);
+  --color-icon-outline-destructive-disabled: rgb(245 61 107 / 50%);
+  --color-text-button-destructive: rgb(245 61 107);
+  --color-text-button-destructive-disabled: rgb(245 61 107 / 50%);
+  --color-background-button-outline-destructive-hover: rgb(255 255 255 / 10%);
+  --color-background-button-gray-destructive: rgb(255 255 255 / 10%);
+  --color-background-button-gray-destructive-hover: rgb(255 255 255 / 20%);
+  --color-background-button-tertiary-destructive-hover: rgb(255 255 255 / 10%);
+  --color-text-button-destructive-hover: rgb(247 100 137);
+  --color-border-input-divider: rgb(255 255 255 / 20%);
+  --color-border-input-divider-overlay: rgb(255 255 255 / 10%);
+  --color-border-input-normal: rgb(255 255 255 / 20%);
+  --color-icon-outline-secondary-active: rgb(255 255 255);
+  --color-background-accent-gray-bolder: rgb(255 255 255 / 10%);
+  --color-icon-fill-secondary: rgb(255 255 255 / 30%);
+  --color-text-accent-green: rgb(45 202 114);
+  --color-icon-fill-success: rgb(45 202 114);
+  --color-background-accent-gray: rgb(255 255 255 / 5%);
+  --color-text-button-link-green: rgb(86 217 144);
+  --color-background-accent-green: rgb(255 255 255 / 10%);
+  --color-text-accent-green-secondary: rgb(255 255 255 / 50%);
+  --color-text-accent-blue: rgb(0 172 255);
+  --color-text-accent-blue-secondary: rgb(255 255 255 / 50%);
+  --color-icon-fill-information: rgb(0 172 255);
+  --color-text-button-link-blue: rgb(56 190 255);
+  --color-background-accent-blue: rgb(255 255 255 / 10%);
+  --color-background-accent-yellow: rgb(255 255 255 / 10%);
+  --color-text-button-link-yellow: rgb(255 206 92);
+  --color-text-accent-yellow: rgb(255 194 51);
+  --color-text-accent-yellow-secondary: rgb(255 255 255 / 50%);
+  --color-icon-fill-warning: rgb(255 194 51);
+  --color-background-accent-red: rgb(255 255 255 / 10%);
+  --color-text-accent-red: rgb(245 61 107);
+  --color-text-accent-red-secondary: rgb(255 255 255 / 50%);
+  --color-background-button-outline-active: rgb(0 0 0);
+  --color-border-neutral: rgb(255 255 255 / 20%);
+  --color-border-primary: rgb(141 108 239);
+  --color-border-info: rgb(0 172 255);
+  --color-border-warning: rgb(255 194 51);
+  --color-border-success: rgb(45 202 114);
+  --color-border-destructive: rgb(245 61 107);
+  --color-icon-fill-destructive: rgb(245 61 107);
+  --color-icon-outline-success: rgb(45 202 114);
+  --color-icon-outline-information: rgb(0 172 255);
+  --color-icon-outline-warning: rgb(255 194 51);
+  --color-border-light: rgb(255 255 255 / 10%);
+  --color-text-white: rgb(255 255 255);
+  --color-background-select-select-item-hover: rgb(255 255 255 / 5%);
+  --color-text-disabled: rgb(255 255 255 / 30%);
+  --color-icon-checkbox-checked: rgb(141 108 239);
+  --color-icon-checkbox-checked-disabled: rgb(255 255 255 / 20%);
+  --color-border-input-hover: rgb(255 255 255 / 30%);
+  --color-icon-outline-secondary-hover: rgb(255 255 255 / 80%);
+  --color-icon-fill-discovery: rgb(141 108 239);
+  --color-icon-status-grey: rgb(108 108 137);
+  --color-icon-status-green: rgb(45 202 114);
+  --color-icon-status-red: rgb(245 61 107);
+  --color-background-avatar-placeholder: rgb(255 255 255 / 10%);
+  --color-icon-avatar-placeholder: rgb(255 255 255 / 30%);
+  --color-background-red: rgb(245 61 107);
+  --color-background-blue: rgb(0 172 255);
+  --color-background-pink: rgb(247 95 222);
+  --color-background-orange: rgb(255 125 82);
+  --color-background-green: rgb(45 202 114);
+  --color-background-yellow: rgb(255 194 51);
+  --color-background-purple: rgb(112 71 235);
+  --color-background-avatar-more-label: rgb(41 41 41);
+  --color-text-accent-gray: rgb(255 255 255 / 80%);
+  --color-text-accent-pink: rgb(247 95 222);
+  --color-text-accent-orange: rgb(255 125 82);
+  --color-text-accent-purple: rgb(141 108 239);
+  --color-background-accent-orange: rgb(255 255 255 / 10%);
+  --color-background-accent-pink: rgb(255 255 255 / 10%);
+  --color-background-accent-purple: rgb(255 255 255 / 10%);
+  --color-icon-outline-orange: rgb(255 125 82);
+  --color-icon-outline-pink: rgb(247 95 222);
+  --color-border-checkbox-normal: rgb(255 255 255 / 30%);
+  --color-border-checkbox-hover: rgb(255 255 255 / 40%);
+  --color-border-checkbox-disabled: rgb(255 255 255 / 10%);
+  --color-background-input-disabled: rgb(255 255 255 / 10%);
+  --color-text-destructive: rgb(245 61 107);
+  --color-text-required: rgb(245 61 107);
+  --color-background-tooltip-body: rgb(141 108 239);
+  --color-icon-tooltip-normal: rgb(255 255 255 / 30%);
+  --color-icon-tooltip-hover: rgb(141 108 239);
+  --color-icon-tooltip-active: rgb(141 108 239);
+  --color-border-menu-divider: rgb(255 255 255 / 6%);
+  --color-background-input-disabled-overlay: rgb(255 255 255 / 5%);
+  --color-background-switch-handle: rgb(255 255 255);
+  --color-background-switch-normal: rgb(255 255 255 / 30%);
+  --color-background-switch-hover: rgb(255 255 255 / 40%);
+  --color-background-switch-disabled: rgb(255 255 255 / 20%);
+  --color-background-switch-active-normal: rgb(141 108 239);
+  --color-background-switch-active-hover: rgb(112 71 235);
+  --color-background-switch-handle-disabled: rgb(255 255 255 / 20%);
+  --color-background-cursor-white: rgb(255 255 255);
+  --color-background-cursor-black: rgb(18 18 23);
+  --color-icon-fill-base: rgb(255 255 255);
+  --color-background-input-normal: rgb(0 0 0 / 0%);
+  --color-background-input-focus: rgb(0 0 0);
+  --color-border-input-focus: rgb(141 108 239);
+  --color-border-input-disabled: rgb(255 255 255 / 10%);
+  --color-border-input-destructive: rgb(245 61 107);
+  --color-border-input-divider-disabled: rgb(255 255 255 / 10%);
+  --color-border-checkbox-checked: rgb(141 108 239);
+  --color-icon-checkbox-checked-radio-disabled: rgb(255 255 255 / 10%);
+  --color-background-scrollbar-body: rgb(255 255 255 / 10%);
+  --color-icon-fill-secondary-disabled: rgb(255 255 255 / 10%);
+  --color-text-gray: rgb(18 18 23);
+  --color-background-accent-gray-md: rgb(255 255 255 / 5%);
+  --color-border-base-component: rgb(141 108 239);
+  --color-border-accent-green: rgb(255 255 255 / 10%);
+  --color-border-accent-orange: rgb(255 255 255 / 10%);
+  --color-border-accent-red: rgb(255 255 255 / 10%);
+  --color-border-accent-pink: rgb(255 255 255 / 10%);
+  --color-border-accent-purple: rgb(255 255 255 / 10%);
+  --color-border-accent-blue: rgb(255 255 255 / 10%);
+  --color-border-accent-yellow: rgb(255 255 255 / 10%);
+  --color-border-accent-gray: rgb(255 255 255 / 10%);
+  --color-background-button-primary-gray-normal: rgb(255 255 255);
+  --color-background-button-primary-gray-hover: rgb(255 255 255 / 80%);
+  --color-background-button-primary-gray-disabled: rgb(255 255 255 / 20%);
+  --color-text-button-primary-gray-normal: rgb(18 18 23);
+  --color-icon-outline-primary-gray: rgb(18 18 23);
+  --color-background-progress-track-bar: rgb(255 255 255 / 20%);
+  --color-background-progress-progress-bar: rgb(141 108 239);
+  --color-background-progress-progress-bar-green: rgb(45 202 114);
+  --color-background-progress-progress-bar-blue: rgb(0 172 255);
+  --color-background-progress-progress-bar-orange: rgb(255 125 82);
+  --color-background-progress-progress-bar-pink: rgb(247 95 222);
+  --color-background-progress-progress-bar-yellow: rgb(255 194 51);
+  --color-background-progress-progress-bar-red: rgb(245 61 107);
+  --color-background-progress-progress-bar-gray: rgb(255 255 255);
+  --color-background-slider-track-bar: rgb(255 255 255 / 20%);
+  --color-background-slider-value-bar-normal: rgb(141 108 239);
+  --color-background-slider-value-bar-disabled: rgb(255 255 255 / 10%);
+  --color-background-slider-handle-normal: rgb(255 255 255);
+  --color-border-slider-handle-normal: rgb(255 255 255);
+  --color-background-slider-handle-disabled: rgb(169 169 188);
+  --color-border-slider-handle-active: rgb(255 255 255);
+  --color-background-slider-tooltip: rgb(141 108 239);
+  --color-background-loading-track: rgb(255 255 255 / 20%);
+  --color-background-loading-stroke: rgb(141 108 239);
+  --color-background-tab-fill-active: rgb(255 255 255 / 10%);
+  --color-text-tab-fill-active: rgb(255 255 255);
+  --color-background-tab-fill-hover: rgb(255 255 255 / 10%);
+  --color-text-tab-underline-active: rgb(141 108 239);
+  --color-border-tab-underline-hover: rgb(255 255 255 / 20%);
+  --color-border-tab-underline-active: rgb(141 108 239);
+  --color-border-tab-border: rgb(255 255 255 / 20%);
+  --color-text-tab-normal: rgb(255 255 255 / 50%);
+  --color-text-tab-hover: rgb(255 255 255);
+  --color-background-tab-contained-hover: rgb(255 255 255 / 10%);
+  --color-background-tab-contained-normal: rgb(0 0 0 / 0%);
+  --color-background-menu-menu-item-hover: rgb(255 255 255 / 5%);
+  --color-border-kbs-normal: rgb(255 255 255 / 20%);
+  --color-border-kbs-disabled: rgb(255 255 255 / 10%);
+}
+
+/* Utility Classes */
+.color-text-primary {
+  color: var(--color-text-primary);
+}
+
+.color-text-body {
+  color: var(--color-text-body);
+}
+
+.surface-canvas {
+  background-color: var(--surface-canvas);
+}
+
+.surface-overlay {
+  background-color: var(--surface-overlay);
+}
+
+.color-text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.color-background-button-primary-normal {
+  background-color: var(--color-background-button-primary-normal);
+}
+
+.color-background-button-primary-hover {
+  background-color: var(--color-background-button-primary-hover);
+}
+
+.color-background-button-primary-disabled {
+  background-color: var(--color-background-button-primary-disabled);
+}
+
+.color-icon-outline-primary {
+  color: var(--color-icon-outline-primary);
+}
+
+.color-icon-outline-secondary {
+  color: var(--color-icon-outline-secondary);
+}
+
+.color-icon-outline-primary-disabled {
+  color: var(--color-icon-outline-primary-disabled);
+}
+
+.color-background-button-outine-hover {
+  background-color: var(--color-background-button-outine-hover);
+}
+
+.color-background-button-outline-normal {
+  background-color: var(--color-background-button-outline-normal);
+}
+
+.color-background-button-gray-normal {
+  background-color: var(--color-background-button-gray-normal);
+}
+
+.color-background-button-gray-hover {
+  background-color: var(--color-background-button-gray-hover);
+}
+
+.color-background-button-primary-desctructive {
+  background-color: var(--color-background-button-primary-desctructive);
+}
+
+.color-background-button-primary-destructive-hover {
+  background-color: var(--color-background-button-primary-destructive-hover);
+}
+
+.color-background-button-primary-desctructive-disabled {
+  background-color: var(--color-background-button-primary-desctructive-disabled);
+}
+
+.color-text-button-primary-normal {
+  color: var(--color-text-button-primary-normal);
+}
+
+.color-text-button-primary-disabled {
+  color: var(--color-text-button-primary-disabled);
+}
+
+.color-border-button-outline-normal {
+  border-color: var(--color-border-button-outline-normal);
+}
+
+.color-border-button-outline-disabled {
+  border-color: var(--color-border-button-outline-disabled);
+}
+
+.color-icon-outline-secondary-disabled {
+  color: var(--color-icon-outline-secondary-disabled);
+}
+
+.color-text-button-normal {
+  color: var(--color-text-button-normal);
+}
+
+.color-text-button-disabled {
+  color: var(--color-text-button-disabled);
+}
+
+.color-border-button-outline-hover {
+  border-color: var(--color-border-button-outline-hover);
+}
+
+.color-background-button-tertiary-hover {
+  background-color: var(--color-background-button-tertiary-hover);
+}
+
+.color-background-button-tertiary-normal {
+  background-color: var(--color-background-button-tertiary-normal);
+}
+
+.color-text-button-link-color {
+  color: var(--color-text-button-link-color);
+}
+
+.color-text-button-link-color-disabled {
+  color: var(--color-text-button-link-color-disabled);
+}
+
+.color-text-button-link-color-hover {
+  color: var(--color-text-button-link-color-hover);
+}
+
+.color-icon-outline-discovery {
+  color: var(--color-icon-outline-discovery);
+}
+
+.color-icon-outline-discovery-hover {
+  color: var(--color-icon-outline-discovery-hover);
+}
+
+.color-icon-outline-discovery-disabled {
+  color: var(--color-icon-outline-discovery-disabled);
+}
+
+.color-border-button-outline-destructive {
+  border-color: var(--color-border-button-outline-destructive);
+}
+
+.color-border-button-outline-destructive-disabled {
+  border-color: var(--color-border-button-outline-destructive-disabled);
+}
+
+.color-icon-outline-destructive {
+  color: var(--color-icon-outline-destructive);
+}
+
+.color-icon-outline-destructive-hover {
+  color: var(--color-icon-outline-destructive-hover);
+}
+
+.color-icon-outline-destructive-disabled {
+  color: var(--color-icon-outline-destructive-disabled);
+}
+
+.color-text-button-destructive {
+  color: var(--color-text-button-destructive);
+}
+
+.color-text-button-destructive-disabled {
+  color: var(--color-text-button-destructive-disabled);
+}
+
+.color-background-button-outline-destructive-hover {
+  background-color: var(--color-background-button-outline-destructive-hover);
+}
+
+.color-background-button-gray-destructive {
+  background-color: var(--color-background-button-gray-destructive);
+}
+
+.color-background-button-gray-destructive-hover {
+  background-color: var(--color-background-button-gray-destructive-hover);
+}
+
+.color-background-button-tertiary-destructive-hover {
+  background-color: var(--color-background-button-tertiary-destructive-hover);
+}
+
+.color-text-button-destructive-hover {
+  color: var(--color-text-button-destructive-hover);
+}
+
+.color-border-input-divider {
+  border-color: var(--color-border-input-divider);
+}
+
+.color-border-input-divider-overlay {
+  border-color: var(--color-border-input-divider-overlay);
+}
+
+.color-border-input-normal {
+  border-color: var(--color-border-input-normal);
+}
+
+.color-icon-outline-secondary-active {
+  color: var(--color-icon-outline-secondary-active);
+}
+
+.color-background-accent-gray-bolder {
+  background-color: var(--color-background-accent-gray-bolder);
+}
+
+.color-icon-fill-secondary {
+  color: var(--color-icon-fill-secondary);
+}
+
+.color-text-accent-green {
+  color: var(--color-text-accent-green);
+}
+
+.color-icon-fill-success {
+  color: var(--color-icon-fill-success);
+}
+
+.color-background-accent-gray {
+  background-color: var(--color-background-accent-gray);
+}
+
+.color-text-button-link-green {
+  color: var(--color-text-button-link-green);
+}
+
+.color-background-accent-green {
+  background-color: var(--color-background-accent-green);
+}
+
+.color-text-accent-green-secondary {
+  color: var(--color-text-accent-green-secondary);
+}
+
+.color-text-accent-blue {
+  color: var(--color-text-accent-blue);
+}
+
+.color-text-accent-blue-secondary {
+  color: var(--color-text-accent-blue-secondary);
+}
+
+.color-icon-fill-information {
+  color: var(--color-icon-fill-information);
+}
+
+.color-text-button-link-blue {
+  color: var(--color-text-button-link-blue);
+}
+
+.color-background-accent-blue {
+  background-color: var(--color-background-accent-blue);
+}
+
+.color-background-accent-yellow {
+  background-color: var(--color-background-accent-yellow);
+}
+
+.color-text-button-link-yellow {
+  color: var(--color-text-button-link-yellow);
+}
+
+.color-text-accent-yellow {
+  color: var(--color-text-accent-yellow);
+}
+
+.color-text-accent-yellow-secondary {
+  color: var(--color-text-accent-yellow-secondary);
+}
+
+.color-icon-fill-warning {
+  color: var(--color-icon-fill-warning);
+}
+
+.color-background-accent-red {
+  background-color: var(--color-background-accent-red);
+}
+
+.color-text-accent-red {
+  color: var(--color-text-accent-red);
+}
+
+.color-text-accent-red-secondary {
+  color: var(--color-text-accent-red-secondary);
+}
+
+.color-background-button-outline-active {
+  background-color: var(--color-background-button-outline-active);
+}
+
+.color-border-neutral {
+  border-color: var(--color-border-neutral);
+}
+
+.color-border-primary {
+  border-color: var(--color-border-primary);
+}
+
+.color-border-info {
+  border-color: var(--color-border-info);
+}
+
+.color-border-warning {
+  border-color: var(--color-border-warning);
+}
+
+.color-border-success {
+  border-color: var(--color-border-success);
+}
+
+.color-border-destructive {
+  border-color: var(--color-border-destructive);
+}
+
+.color-icon-fill-destructive {
+  color: var(--color-icon-fill-destructive);
+}
+
+.color-icon-outline-success {
+  color: var(--color-icon-outline-success);
+}
+
+.color-icon-outline-information {
+  color: var(--color-icon-outline-information);
+}
+
+.color-icon-outline-warning {
+  color: var(--color-icon-outline-warning);
+}
+
+.color-border-light {
+  border-color: var(--color-border-light);
+}
+
+.color-text-white {
+  color: var(--color-text-white);
+}
+
+.color-background-select-select-item-hover {
+  background-color: var(--color-background-select-select-item-hover);
+}
+
+.color-text-disabled {
+  color: var(--color-text-disabled);
+}
+
+.color-icon-checkbox-checked {
+  color: var(--color-icon-checkbox-checked);
+}
+
+.color-icon-checkbox-checked-disabled {
+  color: var(--color-icon-checkbox-checked-disabled);
+}
+
+.color-border-input-hover {
+  border-color: var(--color-border-input-hover);
+}
+
+.color-icon-outline-secondary-hover {
+  color: var(--color-icon-outline-secondary-hover);
+}
+
+.color-icon-fill-discovery {
+  color: var(--color-icon-fill-discovery);
+}
+
+.color-icon-status-grey {
+  color: var(--color-icon-status-grey);
+}
+
+.color-icon-status-green {
+  color: var(--color-icon-status-green);
+}
+
+.color-icon-status-red {
+  color: var(--color-icon-status-red);
+}
+
+.color-background-avatar-placeholder {
+  background-color: var(--color-background-avatar-placeholder);
+}
+
+.color-icon-avatar-placeholder {
+  color: var(--color-icon-avatar-placeholder);
+}
+
+.color-background-red {
+  background-color: var(--color-background-red);
+}
+
+.color-background-blue {
+  background-color: var(--color-background-blue);
+}
+
+.color-background-pink {
+  background-color: var(--color-background-pink);
+}
+
+.color-background-orange {
+  background-color: var(--color-background-orange);
+}
+
+.color-background-green {
+  background-color: var(--color-background-green);
+}
+
+.color-background-yellow {
+  background-color: var(--color-background-yellow);
+}
+
+.color-background-purple {
+  background-color: var(--color-background-purple);
+}
+
+.color-background-avatar-more-label {
+  background-color: var(--color-background-avatar-more-label);
+}
+
+.color-text-accent-gray {
+  color: var(--color-text-accent-gray);
+}
+
+.color-text-accent-pink {
+  color: var(--color-text-accent-pink);
+}
+
+.color-text-accent-orange {
+  color: var(--color-text-accent-orange);
+}
+
+.color-text-accent-purple {
+  color: var(--color-text-accent-purple);
+}
+
+.color-background-accent-orange {
+  background-color: var(--color-background-accent-orange);
+}
+
+.color-background-accent-pink {
+  background-color: var(--color-background-accent-pink);
+}
+
+.color-background-accent-purple {
+  background-color: var(--color-background-accent-purple);
+}
+
+.color-icon-outline-orange {
+  color: var(--color-icon-outline-orange);
+}
+
+.color-icon-outline-pink {
+  color: var(--color-icon-outline-pink);
+}
+
+.color-border-checkbox-normal {
+  border-color: var(--color-border-checkbox-normal);
+}
+
+.color-border-checkbox-hover {
+  border-color: var(--color-border-checkbox-hover);
+}
+
+.color-border-checkbox-disabled {
+  border-color: var(--color-border-checkbox-disabled);
+}
+
+.color-background-input-disabled {
+  background-color: var(--color-background-input-disabled);
+}
+
+.color-text-destructive {
+  color: var(--color-text-destructive);
+}
+
+.color-text-required {
+  color: var(--color-text-required);
+}
+
+.color-background-tooltip-body {
+  background-color: var(--color-background-tooltip-body);
+}
+
+.color-icon-tooltip-normal {
+  color: var(--color-icon-tooltip-normal);
+}
+
+.color-icon-tooltip-hover {
+  color: var(--color-icon-tooltip-hover);
+}
+
+.color-icon-tooltip-active {
+  color: var(--color-icon-tooltip-active);
+}
+
+.color-border-menu-divider {
+  border-color: var(--color-border-menu-divider);
+}
+
+.color-background-input-disabled-overlay {
+  background-color: var(--color-background-input-disabled-overlay);
+}
+
+.color-background-switch-handle {
+  background-color: var(--color-background-switch-handle);
+}
+
+.color-background-switch-normal {
+  background-color: var(--color-background-switch-normal);
+}
+
+.color-background-switch-hover {
+  background-color: var(--color-background-switch-hover);
+}
+
+.color-background-switch-disabled {
+  background-color: var(--color-background-switch-disabled);
+}
+
+.color-background-switch-active-normal {
+  background-color: var(--color-background-switch-active-normal);
+}
+
+.color-background-switch-active-hover {
+  background-color: var(--color-background-switch-active-hover);
+}
+
+.color-background-switch-handle-disabled {
+  background-color: var(--color-background-switch-handle-disabled);
+}
+
+.color-background-cursor-white {
+  background-color: var(--color-background-cursor-white);
+}
+
+.color-background-cursor-black {
+  background-color: var(--color-background-cursor-black);
+}
+
+.color-icon-fill-base {
+  color: var(--color-icon-fill-base);
+}
+
+.color-background-input-normal {
+  background-color: var(--color-background-input-normal);
+}
+
+.color-background-input-focus {
+  background-color: var(--color-background-input-focus);
+}
+
+.color-border-input-focus {
+  border-color: var(--color-border-input-focus);
+}
+
+.color-border-input-disabled {
+  border-color: var(--color-border-input-disabled);
+}
+
+.color-border-input-destructive {
+  border-color: var(--color-border-input-destructive);
+}
+
+.color-border-input-divider-disabled {
+  border-color: var(--color-border-input-divider-disabled);
+}
+
+.color-border-checkbox-checked {
+  border-color: var(--color-border-checkbox-checked);
+}
+
+.color-icon-checkbox-checked-radio-disabled {
+  color: var(--color-icon-checkbox-checked-radio-disabled);
+}
+
+.color-background-scrollbar-body {
+  background-color: var(--color-background-scrollbar-body);
+}
+
+.color-icon-fill-secondary-disabled {
+  color: var(--color-icon-fill-secondary-disabled);
+}
+
+.color-text-gray {
+  color: var(--color-text-gray);
+}
+
+.color-background-accent-gray-md {
+  background-color: var(--color-background-accent-gray-md);
+}
+
+.color-border-base-component {
+  border-color: var(--color-border-base-component);
+}
+
+.color-border-accent-green {
+  border-color: var(--color-border-accent-green);
+}
+
+.color-border-accent-orange {
+  border-color: var(--color-border-accent-orange);
+}
+
+.color-border-accent-red {
+  border-color: var(--color-border-accent-red);
+}
+
+.color-border-accent-pink {
+  border-color: var(--color-border-accent-pink);
+}
+
+.color-border-accent-purple {
+  border-color: var(--color-border-accent-purple);
+}
+
+.color-border-accent-blue {
+  border-color: var(--color-border-accent-blue);
+}
+
+.color-border-accent-yellow {
+  border-color: var(--color-border-accent-yellow);
+}
+
+.color-border-accent-gray {
+  border-color: var(--color-border-accent-gray);
+}
+
+.color-background-button-primary-gray-normal {
+  background-color: var(--color-background-button-primary-gray-normal);
+}
+
+.color-background-button-primary-gray-hover {
+  background-color: var(--color-background-button-primary-gray-hover);
+}
+
+.color-background-button-primary-gray-disabled {
+  background-color: var(--color-background-button-primary-gray-disabled);
+}
+
+.color-text-button-primary-gray-normal {
+  color: var(--color-text-button-primary-gray-normal);
+}
+
+.color-icon-outline-primary-gray {
+  color: var(--color-icon-outline-primary-gray);
+}
+
+.color-background-progress-track-bar {
+  background-color: var(--color-background-progress-track-bar);
+}
+
+.color-background-progress-progress-bar {
+  background-color: var(--color-background-progress-progress-bar);
+}
+
+.color-background-progress-progress-bar-green {
+  background-color: var(--color-background-progress-progress-bar-green);
+}
+
+.color-background-progress-progress-bar-blue {
+  background-color: var(--color-background-progress-progress-bar-blue);
+}
+
+.color-background-progress-progress-bar-orange {
+  background-color: var(--color-background-progress-progress-bar-orange);
+}
+
+.color-background-progress-progress-bar-pink {
+  background-color: var(--color-background-progress-progress-bar-pink);
+}
+
+.color-background-progress-progress-bar-yellow {
+  background-color: var(--color-background-progress-progress-bar-yellow);
+}
+
+.color-background-progress-progress-bar-red {
+  background-color: var(--color-background-progress-progress-bar-red);
+}
+
+.color-background-progress-progress-bar-gray {
+  background-color: var(--color-background-progress-progress-bar-gray);
+}
+
+.color-background-slider-track-bar {
+  background-color: var(--color-background-slider-track-bar);
+}
+
+.color-background-slider-value-bar-normal {
+  background-color: var(--color-background-slider-value-bar-normal);
+}
+
+.color-background-slider-value-bar-disabled {
+  background-color: var(--color-background-slider-value-bar-disabled);
+}
+
+.color-background-slider-handle-normal {
+  background-color: var(--color-background-slider-handle-normal);
+}
+
+.color-border-slider-handle-normal {
+  border-color: var(--color-border-slider-handle-normal);
+}
+
+.color-background-slider-handle-disabled {
+  background-color: var(--color-background-slider-handle-disabled);
+}
+
+.color-border-slider-handle-active {
+  border-color: var(--color-border-slider-handle-active);
+}
+
+.color-background-slider-tooltip {
+  background-color: var(--color-background-slider-tooltip);
+}
+
+.color-background-loading-track {
+  background-color: var(--color-background-loading-track);
+}
+
+.color-background-loading-stroke {
+  background-color: var(--color-background-loading-stroke);
+}
+
+.color-background-tab-fill-active {
+  background-color: var(--color-background-tab-fill-active);
+}
+
+.color-text-tab-fill-active {
+  color: var(--color-text-tab-fill-active);
+}
+
+.color-background-tab-fill-hover {
+  background-color: var(--color-background-tab-fill-hover);
+}
+
+.color-text-tab-underline-active {
+  color: var(--color-text-tab-underline-active);
+}
+
+.color-border-tab-underline-hover {
+  border-color: var(--color-border-tab-underline-hover);
+}
+
+.color-border-tab-underline-active {
+  border-color: var(--color-border-tab-underline-active);
+}
+
+.color-border-tab-border {
+  border-color: var(--color-border-tab-border);
+}
+
+.color-text-tab-normal {
+  color: var(--color-text-tab-normal);
+}
+
+.color-text-tab-hover {
+  color: var(--color-text-tab-hover);
+}
+
+.color-background-tab-contained-hover {
+  background-color: var(--color-background-tab-contained-hover);
+}
+
+.color-background-tab-contained-normal {
+  background-color: var(--color-background-tab-contained-normal);
+}
+
+.color-background-menu-menu-item-hover {
+  background-color: var(--color-background-menu-menu-item-hover);
+}
+
+.color-border-kbs-normal {
+  border-color: var(--color-border-kbs-normal);
+}
+
+.color-border-kbs-disabled {
+  border-color: var(--color-border-kbs-disabled);
+}
