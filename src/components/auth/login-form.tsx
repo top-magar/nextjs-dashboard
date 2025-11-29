@@ -1,12 +1,6 @@
 'use client';
 
-import { displayFont } from '@/config/fonts';
-import {
-  AtSymbolIcon,
-  KeyIcon,
-  ExclamationCircleIcon,
-} from '@heroicons/react/24/outline';
-import { ArrowRightIcon } from '@heroicons/react/20/solid';
+
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -14,6 +8,7 @@ import { cn } from "@/lib/utils"
 import { useActionState } from 'react';
 import { authenticate } from '@/lib/actions';
 import { AlertCircle } from 'lucide-react';
+import Link from "next/link";
 
 export function LoginForm({
   className,
@@ -64,7 +59,10 @@ export function LoginForm({
         </Button>
       </div>
       <div className="text-center text-sm text-muted-foreground">
-        Demo: user@nextmail.com / 123456
+        Don&apos;t have an account?{" "}
+        <Link href="/sign-up" className="underline underline-offset-4 hover:text-primary">
+          Sign up
+        </Link>
       </div>
     </form>
   )

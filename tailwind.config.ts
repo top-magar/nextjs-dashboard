@@ -12,6 +12,10 @@ const config: Config = {
 			gridTemplateColumns: {
 				'13': 'repeat(13, minmax(0, 1fr))'
 			},
+			backgroundImage: {
+				'dot-pattern': 'radial-gradient(circle, #000000 1px, transparent 1px)',
+				'dot-pattern-dark': 'radial-gradient(circle, #ffffff 1px, transparent 1px)',
+			},
 			colors: {
 				blue: {
 					'400': '#2589FE',
@@ -102,9 +106,23 @@ const config: Config = {
 				'100%': {
 					transform: 'translateX(100%)'
 				}
+			},
+			'move-right': {
+				'0%': {
+					transform: 'translateX(-100%)'
+				},
+				'100%': {
+					transform: 'translateX(100%)'
+				}
 			}
+		},
+		animation: {
+			'accordion-down': 'accordion-down 0.2s ease-out',
+			'accordion-up': 'accordion-up 0.2s ease-out',
+			shimmer: 'shimmer 2s infinite',
+			'move-right': 'move-right 3s linear infinite'
 		}
 	},
-	plugins: [require('@tailwindcss/forms')],
+	plugins: [require('@tailwindcss/forms'), require("tailwindcss-animate")],
 };
 export default config;
