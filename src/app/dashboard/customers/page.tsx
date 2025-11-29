@@ -37,44 +37,45 @@ export default async function Page(props: {
       <div className="mt-6 flow-root">
         <div className="overflow-x-auto">
           <div className="inline-block min-w-full align-middle">
-            <div className="rounded-lg bg-gray-50 p-2 md:pt-0">
-              <div className="md:hidden">
-                {customers?.map((customer: FormattedCustomersTable) => (
-                  <Card
-                    key={customer.id}
-                    className="mb-2 w-full"
-                  >
-                    <CardHeader className="flex flex-row items-center justify-between border-b pb-4 p-4">
-                      <div className="flex items-center gap-3">
-                        <Avatar className="h-7 w-7">
-                          <AvatarImage src={customer.image_url} alt={`${customer.name}'s profile picture`} />
-                          <AvatarFallback>{customer.name[0]}</AvatarFallback>
-                        </Avatar>
-                        <div>
-                          <p className="font-medium">{customer.name}</p>
-                          <p className="text-sm text-gray-500">{customer.email}</p>
-                        </div>
+
+            <div className="md:hidden">
+              {customers?.map((customer: FormattedCustomersTable) => (
+                <Card
+                  key={customer.id}
+                  className="mb-2 w-full"
+                >
+                  <CardHeader className="flex flex-row items-center justify-between border-b pb-4 p-4">
+                    <div className="flex items-center gap-3">
+                      <Avatar className="h-7 w-7">
+                        <AvatarImage src={customer.image_url} alt={`${customer.name}'s profile picture`} />
+                        <AvatarFallback>{customer.name[0]}</AvatarFallback>
+                      </Avatar>
+                      <div>
+                        <p className="font-medium">{customer.name}</p>
+                        <p className="text-sm text-gray-500">{customer.email}</p>
                       </div>
-                    </CardHeader>
-                    <CardContent className="flex w-full items-center justify-between pt-4 p-4">
-                      <div className="flex w-1/2 flex-col">
-                        <p className="text-xs">Pending</p>
-                        <p className="font-medium">{customer.total_pending}</p>
-                      </div>
-                      <div className="flex w-1/2 flex-col">
-                        <p className="text-xs">Paid</p>
-                        <p className="font-medium">{customer.total_paid}</p>
-                      </div>
-                    </CardContent>
-                    <div className="px-4 pb-4 text-sm">
-                      <p>{customer.total_invoices} invoices</p>
                     </div>
-                  </Card>
-                ))}
-              </div>
-              <Table className="hidden min-w-full text-gray-900 md:table">
-                <TableHeader className="rounded-lg text-left text-sm font-normal">
-                  <TableRow>
+                  </CardHeader>
+                  <CardContent className="flex w-full items-center justify-between pt-4 p-4">
+                    <div className="flex w-1/2 flex-col">
+                      <p className="text-xs">Pending</p>
+                      <p className="font-medium">{customer.total_pending}</p>
+                    </div>
+                    <div className="flex w-1/2 flex-col">
+                      <p className="text-xs">Paid</p>
+                      <p className="font-medium">{customer.total_paid}</p>
+                    </div>
+                  </CardContent>
+                  <div className="px-4 pb-4 text-sm">
+                    <p>{customer.total_invoices} invoices</p>
+                  </div>
+                </Card>
+              ))}
+            </div>
+            <div className="bg-white rounded-lg border hidden md:block">
+              <Table className="min-w-full text-gray-900">
+                <TableHeader>
+                  <TableRow className="hover:bg-transparent border-b">
                     <TableHead scope="col" className="px-4 py-5 font-medium sm:pl-6">
                       Name
                     </TableHead>
@@ -93,19 +94,19 @@ export default async function Page(props: {
                   </TableRow>
                 </TableHeader>
 
-                <TableBody className="bg-white">
+                <TableBody>
                   {customers.map((customer: FormattedCustomersTable) => (
-                    <TableRow key={customer.id} className="group">
-                      <TableCell className="whitespace-nowrap py-5 pl-4 pr-3 text-sm text-black group-first-of-type:rounded-md group-last-of-type:rounded-md sm:pl-6">
+                    <TableRow key={customer.id} className="group hover:bg-muted/50 border-b last:border-0">
+                      <TableCell className="whitespace-nowrap py-5 pl-4 pr-3 text-sm text-black sm:pl-6">
                         <div className="flex items-center gap-3">
                           <Avatar className="h-7 w-7">
                             <AvatarImage src={customer.image_url} alt={`${customer.name}'s profile picture`} />
                             <AvatarFallback>{customer.name[0]}</AvatarFallback>
                           </Avatar>
-                          <p>{customer.name}</p>
+                          <p className="font-medium">{customer.name}</p>
                         </div>
                       </TableCell>
-                      <TableCell className="whitespace-nowrap px-4 py-5 text-sm">
+                      <TableCell className="whitespace-nowrap px-4 py-5 text-sm text-muted-foreground">
                         {customer.email}
                       </TableCell>
                       <TableCell className="whitespace-nowrap px-4 py-5 text-sm">
@@ -114,7 +115,7 @@ export default async function Page(props: {
                       <TableCell className="whitespace-nowrap px-4 py-5 text-sm">
                         {customer.total_pending}
                       </TableCell>
-                      <TableCell className="whitespace-nowrap px-4 py-5 text-sm group-first-of-type:rounded-md group-last-of-type:rounded-md">
+                      <TableCell className="whitespace-nowrap px-4 py-5 text-sm">
                         {customer.total_paid}
                       </TableCell>
                     </TableRow>
@@ -126,5 +127,6 @@ export default async function Page(props: {
         </div>
       </div>
     </div>
+
   );
 }

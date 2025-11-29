@@ -130,40 +130,41 @@ async function InvoicesTable({
   return (
     <div className="mt-6 flow-root">
       <div className="inline-block min-w-full align-middle">
-        <div className="rounded-lg bg-gray-50 p-2 md:pt-0">
-          <div className="md:hidden">
-            {invoices?.map((invoice: InvoicesTableType) => (
-              <Card
-                key={invoice.id}
-                className="mb-2 w-full"
-              >
-                <CardHeader className="flex flex-row items-center justify-between border-b pb-4 p-4">
-                  <div className="flex items-center">
-                    <Avatar className="mr-2 h-7 w-7">
-                      <AvatarImage src={invoice.image_url} alt={`${invoice.name}'s profile picture`} />
-                      <AvatarFallback>{invoice.name[0]}</AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <p className="font-medium">{invoice.name}</p>
-                      <p className="text-sm text-gray-500">{invoice.email}</p>
-                    </div>
-                  </div>
-                  <InvoiceStatus status={invoice.status} />
-                </CardHeader>
-                <CardContent className="flex w-full items-center justify-between pt-4 p-4">
+
+        <div className="md:hidden">
+          {invoices?.map((invoice: InvoicesTableType) => (
+            <Card
+              key={invoice.id}
+              className="mb-2 w-full"
+            >
+              <CardHeader className="flex flex-row items-center justify-between border-b pb-4 p-4">
+                <div className="flex items-center">
+                  <Avatar className="mr-2 h-7 w-7">
+                    <AvatarImage src={invoice.image_url} alt={`${invoice.name}'s profile picture`} />
+                    <AvatarFallback>{invoice.name[0]}</AvatarFallback>
+                  </Avatar>
                   <div>
-                    <p className="text-xl font-medium">
-                      {formatCurrency(invoice.amount)}
-                    </p>
-                    <p>{formatDateToLocal(invoice.date)}</p>
+                    <p className="font-medium">{invoice.name}</p>
+                    <p className="text-sm text-gray-500">{invoice.email}</p>
                   </div>
-                  <InvoiceActions id={invoice.id} />
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <Table className="hidden min-w-full text-gray-900 md:table">
-            <TableHeader className="rounded-lg text-left text-sm font-normal">
+                </div>
+                <InvoiceStatus status={invoice.status} />
+              </CardHeader>
+              <CardContent className="flex w-full items-center justify-between pt-4 p-4">
+                <div>
+                  <p className="text-xl font-medium">
+                    {formatCurrency(invoice.amount)}
+                  </p>
+                  <p>{formatDateToLocal(invoice.date)}</p>
+                </div>
+                <InvoiceActions id={invoice.id} />
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        <div className="bg-white rounded-lg border hidden md:block">
+          <Table className="min-w-full text-gray-900">
+            <TableHeader>
               <TableRow className="hover:bg-transparent border-b">
                 <TableHead scope="col" className="px-4 py-5 font-medium sm:pl-6">
                   Customer
@@ -185,7 +186,7 @@ async function InvoicesTable({
                 </TableHead>
               </TableRow>
             </TableHeader>
-            <TableBody className="bg-white">
+            <TableBody>
               {invoices?.map((invoice: InvoicesTableType) => (
                 <TableRow
                   key={invoice.id}
@@ -220,6 +221,7 @@ async function InvoicesTable({
             </TableBody>
           </Table>
         </div>
+
       </div>
     </div>
   );
