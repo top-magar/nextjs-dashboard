@@ -4,7 +4,7 @@ import { fetchFilteredInvoices, fetchInvoicesPages } from '@/lib/data';
 import type { InvoicesTable as InvoicesTableType } from '@/lib/definitions';
 import { Suspense } from 'react';
 import { Metadata } from 'next';
-import { PencilIcon, TrashIcon, CheckIcon, ClockIcon, PlusIcon } from '@heroicons/react/24/outline';
+import { CheckIcon, ClockIcon, PlusIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import {
   formatDateToLocal,
@@ -26,7 +26,6 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
-import { deleteInvoice } from '@/lib/actions';
 import clsx from 'clsx';
 
 export const metadata: Metadata = {
@@ -117,6 +116,8 @@ export default async function Page(props: {
   );
 }
 
+import { InvoiceActions } from '@/components/invoices/actions';
+
 async function InvoicesTable({
   query,
   currentPage,
@@ -156,17 +157,14 @@ async function InvoicesTable({
                     </p>
                     <p>{formatDateToLocal(invoice.date)}</p>
                   </div>
-                  <div className="flex justify-end gap-2">
-                    <UpdateInvoice id={invoice.id} />
-                    <DeleteInvoice id={invoice.id} />
-                  </div>
+                  <InvoiceActions id={invoice.id} />
                 </CardContent>
               </Card>
             ))}
           </div>
           <Table className="hidden min-w-full text-gray-900 md:table">
             <TableHeader className="rounded-lg text-left text-sm font-normal">
-              <TableRow>
+              <TableRow className="hover:bg-transparent border-b">
                 <TableHead scope="col" className="px-4 py-5 font-medium sm:pl-6">
                   Customer
                 </TableHead>
@@ -191,7 +189,7 @@ async function InvoicesTable({
               {invoices?.map((invoice: InvoicesTableType) => (
                 <TableRow
                   key={invoice.id}
-                  className="w-full border-b py-3 text-sm last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg"
+                  className="w-full border-b py-3 text-sm last-of-type:border-none hover:bg-muted/50"
                 >
                   <TableCell className="whitespace-nowrap py-3 pl-6 pr-3">
                     <div className="flex items-center gap-3">
@@ -199,26 +197,23 @@ async function InvoicesTable({
                         <AvatarImage src={invoice.image_url} alt={`${invoice.name}'s profile picture`} />
                         <AvatarFallback>{invoice.name[0]}</AvatarFallback>
                       </Avatar>
-                      <p>{invoice.name}</p>
+                      <p className="font-medium">{invoice.name}</p>
                     </div>
                   </TableCell>
-                  <TableCell className="whitespace-nowrap px-3 py-3">
+                  <TableCell className="whitespace-nowrap px-3 py-3 text-muted-foreground">
                     {invoice.email}
                   </TableCell>
                   <TableCell className="whitespace-nowrap px-3 py-3">
                     {formatCurrency(invoice.amount)}
                   </TableCell>
-                  <TableCell className="whitespace-nowrap px-3 py-3">
+                  <TableCell className="whitespace-nowrap px-3 py-3 text-muted-foreground">
                     {formatDateToLocal(invoice.date)}
                   </TableCell>
                   <TableCell className="whitespace-nowrap px-3 py-3">
                     <InvoiceStatus status={invoice.status} />
                   </TableCell>
                   <TableCell className="whitespace-nowrap py-3 pl-6 pr-3">
-                    <div className="flex justify-end gap-3">
-                      <UpdateInvoice id={invoice.id} />
-                      <DeleteInvoice id={invoice.id} />
-                    </div>
+                    <InvoiceActions id={invoice.id} />
                   </TableCell>
                 </TableRow>
               ))}
@@ -234,13 +229,13 @@ function InvoiceStatus({ status }: { status: string }) {
   return (
     <Badge
       className={clsx(
-        'inline-flex items-center rounded-full px-2 py-1 text-xs',
+        'inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ring-1 ring-inset',
         {
-          'bg-gray-100 text-gray-500 hover:bg-gray-100': status === 'pending',
-          'bg-green-500 text-white hover:bg-green-500': status === 'paid',
+          'bg-gray-50 text-gray-600 ring-gray-500/10': status === 'pending',
+          'bg-green-50 text-green-700 ring-green-600/20': status === 'paid',
         },
       )}
-      variant={status === 'pending' ? 'secondary' : 'default'}
+      variant="outline"
     >
       {status === 'pending' ? (
         <>
@@ -251,35 +246,10 @@ function InvoiceStatus({ status }: { status: string }) {
       {status === 'paid' ? (
         <>
           Paid
-          <CheckIcon className="ml-1 w-4 text-white" />
+          <CheckIcon className="ml-1 w-4 text-green-600" />
         </>
       ) : null}
     </Badge>
-  );
-}
-
-function UpdateInvoice({ id }: { id: string }) {
-  return (
-    <Button asChild variant="outline" size="icon" className="rounded-md border p-2 hover:bg-gray-100">
-      <Link href={`/dashboard/invoices/${id}/edit`}>
-        <PencilIcon className="w-5" />
-      </Link>
-    </Button>
-  );
-}
-
-function DeleteInvoice({ id }: { id: string }) {
-  const deleteInvoiceWithId = async () => {
-    'use server';
-    await deleteInvoice(id);
-  };
-  return (
-    <form action={deleteInvoiceWithId}>
-      <Button variant="outline" size="icon" className="rounded-md border p-2 hover:bg-gray-100">
-        <span className="sr-only">Delete</span>
-        <TrashIcon className="w-5" />
-      </Button>
-    </form>
   );
 }
 
