@@ -80,48 +80,50 @@ const config: Config = {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0', opacity: '0' },
+					to: { height: 'var(--radix-accordion-content-height)', opacity: '1' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
+					from: { height: 'var(--radix-accordion-content-height)', opacity: '1' },
+					to: { height: '0', opacity: '0' }
+				},
+				shimmer: {
+					from: { backgroundPosition: '0 0' },
+					to: { backgroundPosition: '-200% 0' }
+				},
+				'move-right': {
+					'0%': { transform: 'translateX(-100%)' },
+					'100%': { transform: 'translateX(400%)' }
+				},
+				'fade-in': {
+					from: { opacity: '0' },
+					to: { opacity: '1' }
+				},
+				'slide-up': {
+					from: { transform: 'translateY(10px)', opacity: '0' },
+					to: { transform: 'translateY(0)', opacity: '1' }
+				},
+				'scale-in': {
+					from: { transform: 'scale(0.95)', opacity: '0' },
+					to: { transform: 'scale(1)', opacity: '1' }
+				},
+				fadeInUp: {
+					'0%': { opacity: '0', transform: 'translateY(20px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				shimmer: 'shimmer 2s linear infinite',
+				'move-right': 'move-right 3s linear infinite',
+				'fade-in': 'fade-in 0.2s ease-out',
+				'slide-up': 'slide-up 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+				'scale-in': 'scale-in 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
+				'fade-in-up': 'fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+				'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite'
 			}
 		},
-		keyframes: {
-			shimmer: {
-				'100%': {
-					transform: 'translateX(100%)'
-				}
-			},
-			'move-right': {
-				'0%': {
-					transform: 'translateX(-100%)'
-				},
-				'100%': {
-					transform: 'translateX(100%)'
-				}
-			}
-		},
-		animation: {
-			'accordion-down': 'accordion-down 0.2s ease-out',
-			'accordion-up': 'accordion-up 0.2s ease-out',
-			shimmer: 'shimmer 2s infinite',
-			'move-right': 'move-right 3s linear infinite'
-		}
 	},
 	plugins: [require('@tailwindcss/forms'), require("tailwindcss-animate")],
 };
