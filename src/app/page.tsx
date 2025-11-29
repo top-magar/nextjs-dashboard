@@ -21,7 +21,7 @@ export default function Page() {
             </a>
             , brought to you by Vercel.
           </p>
-          <Button asChild className="flex items-center gap-5 self-start rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 md:text-base">
+          <Button asChild size="lg" className="flex items-center gap-5 self-start">
             <Link href="/login">
               <span>Log in</span> <ArrowRightIcon className="w-5 md:w-6" />
             </Link>

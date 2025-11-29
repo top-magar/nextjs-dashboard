@@ -131,7 +131,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
             Cancel
           </Link>
         </Button>
-        <Button type="submit" className="bg-primary text-primary-foreground">Create Invoice</Button>
+        <Button type="submit">Create Invoice</Button>
       </div>
     </form>
   );
