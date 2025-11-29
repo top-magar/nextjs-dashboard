@@ -55,7 +55,7 @@ export default function EditInvoiceForm({
                   ))}
                 </SelectContent>
               </Select>
-              <UserCircleIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" />
+              <UserCircleIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-muted-foreground" />
             </div>
             <div id="customer-error" aria-live="polite" aria-atomic="true">
               {state.errors?.customerId &&
@@ -84,7 +84,7 @@ export default function EditInvoiceForm({
                   className="pl-10"
                   aria-describedby="amount-error"
                 />
-                <CurrencyDollarIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
+                <CurrencyDollarIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-muted-foreground peer-focus:text-foreground" />
               </div>
             </div>
             <div id="amount-error" aria-live="polite" aria-atomic="true">
@@ -102,13 +102,13 @@ export default function EditInvoiceForm({
             <legend className="mb-2 block text-sm font-medium">
               Set the invoice status
             </legend>
-            <div className="rounded-md border border-gray-200 bg-white px-[14px] py-3">
+            <div className="rounded-md border border-border bg-card px-[14px] py-3">
               <RadioGroup name="status" defaultValue={invoice.status} className="flex gap-4">
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="pending" id="pending" />
                   <Label
                     htmlFor="pending"
-                    className="flex cursor-pointer items-center gap-1.5 rounded-full bg-gray-100 px-3 py-1.5 text-xs font-medium text-gray-600"
+                    className="flex cursor-pointer items-center gap-1.5 rounded-full bg-muted px-3 py-1.5 text-xs font-medium text-muted-foreground"
                   >
                     Pending <ClockIcon className="h-4 w-4" />
                   </Label>
