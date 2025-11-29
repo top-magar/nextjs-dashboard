@@ -61,10 +61,10 @@ const BentoGridItem = ({
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-primary">
                     {Icon && <Icon className="h-5 w-5" />}
                 </div>
-                <div className="font-bold text-foreground mb-2 text-lg">
+                <div className="font-bold text-foreground mb-2 text-lg line-clamp-1">
                     {title}
                 </div>
-                <div className="font-normal text-muted-foreground text-sm leading-relaxed">
+                <div className="font-normal text-muted-foreground text-sm leading-relaxed line-clamp-3">
                     {description}
                 </div>
             </div>
