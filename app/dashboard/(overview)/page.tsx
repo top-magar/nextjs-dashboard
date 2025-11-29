@@ -1,9 +1,8 @@
-import { Card } from '@/app/ui/dashboard/cards';
+import { StatsCards } from '@/components/dashboard/stats-cards';
 import RevenueChart from '@/app/ui/dashboard/revenue-chart';
 import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
-import { lusitana } from '@/app/ui/fonts';
 import { fetchRevenue, fetchLatestInvoices, fetchCardData } from '@/app/lib/data';
-import { RevenueChartSkeleton, LatestInvoicesSkeleton, CardsSkeleton} from '@/app/ui/skeletons';
+import { RevenueChartSkeleton, LatestInvoicesSkeleton } from '@/app/ui/skeletons';
 import { Suspense } from 'react';
 import { Metadata } from 'next';
 
@@ -12,31 +11,20 @@ export const metadata: Metadata = {
 };
  
 export default async function Page() {
-  const revenue = await fetchRevenue();
-  const latestInvoices = await fetchLatestInvoices();
   const { totalPaidInvoices, totalPendingInvoices, numberOfInvoices, numberOfCustomers } = await fetchCardData();
+  
   return (
-    <main>
-      <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
-        Dashboard
-      </h1>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        <Suspense fallback={<CardsSkeleton />}>
-          <Card title="Collected" value={totalPaidInvoices} type="collected" />
-        </Suspense>
-        <Suspense fallback={<CardsSkeleton />}>
-          <Card title="Pending" value={totalPendingInvoices} type="pending" />
-        </Suspense>
-        <Card title="Total Invoices" value={numberOfInvoices} type="invoices" />
-        <Suspense fallback={<CardsSkeleton />}>
-          <Card
-            title="Total Customers"
-            value={numberOfCustomers}
-            type="customers"
-          />
-        </Suspense>
+    <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
+      <div className="flex items-center">
+        <h1 className="text-lg font-semibold md:text-2xl">Dashboard</h1>
       </div>
-      <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
+      <StatsCards
+        totalPaidInvoices={totalPaidInvoices}
+        totalPendingInvoices={totalPendingInvoices}
+        numberOfInvoices={numberOfInvoices}
+        numberOfCustomers={numberOfCustomers}
+      />
+      <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3">
         <Suspense fallback={<RevenueChartSkeleton />}>
           <RevenueChart />
         </Suspense>
