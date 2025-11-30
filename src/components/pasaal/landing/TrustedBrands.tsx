@@ -1,12 +1,10 @@
-'use client';
-
 import React from 'react';
 
 export const TrustedBrands: React.FC = () => {
     return (
-        <div id="trusted-by" className="bg-background/50 border-y border-border/50 py-12">
+        <section id="trusted-by" className="bg-background border-y border-border/50 py-12">
             <div className="max-w-7xl mx-auto px-4 text-center">
-                <p className="text-sm font-semibold text-muted-foreground tracking-wide mb-8">Powering Nepal's Best Brands</p>
+                <p className="text-sm font-semibold text-muted-foreground uppercase tracking-widest mb-8">Powering Nepal's Best Brands</p>
                 <div className="flex flex-wrap justify-center gap-x-12 gap-y-10 opacity-70 hover:opacity-100 transition-opacity duration-500 grayscale hover:grayscale-0 items-center">
 
                     {/* Daraz Logo */}
@@ -55,6 +53,6 @@ export const TrustedBrands: React.FC = () => {
 
                 </div>
             </div>
-        </div>
+        </section>
     );
 };

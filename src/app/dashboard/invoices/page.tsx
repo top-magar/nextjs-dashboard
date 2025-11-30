@@ -145,7 +145,7 @@ async function InvoicesTable({
                   </Avatar>
                   <div>
                     <p className="font-medium">{invoice.name}</p>
-                    <p className="text-sm text-gray-500">{invoice.email}</p>
+                    <p className="text-sm text-muted-foreground">{invoice.email}</p>
                   </div>
                 </div>
                 <InvoiceStatus status={invoice.status} />
@@ -162,8 +162,8 @@ async function InvoicesTable({
             </Card>
           ))}
         </div>
-        <div className="bg-white rounded-lg border hidden md:block">
-          <Table className="min-w-full text-gray-900">
+        <div className="bg-card rounded-lg border hidden md:block">
+          <Table className="min-w-full text-foreground">
             <TableHeader>
               <TableRow className="hover:bg-transparent border-b">
                 <TableHead scope="col" className="px-4 py-5 font-medium sm:pl-6">
@@ -233,7 +233,7 @@ function InvoiceStatus({ status }: { status: string }) {
       className={clsx(
         'inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ring-1 ring-inset',
         {
-          'bg-gray-50 text-gray-600 ring-gray-500/10': status === 'pending',
+          'bg-muted text-muted-foreground ring-border': status === 'pending',
           'bg-green-50 text-green-700 ring-green-600/20': status === 'paid',
         },
       )}
@@ -242,7 +242,7 @@ function InvoiceStatus({ status }: { status: string }) {
       {status === 'pending' ? (
         <>
           Pending
-          <ClockIcon className="ml-1 w-4 text-gray-500" />
+          <ClockIcon className="ml-1 w-4 text-muted-foreground" />
         </>
       ) : null}
       {status === 'paid' ? (
@@ -257,7 +257,7 @@ function InvoiceStatus({ status }: { status: string }) {
 
 function TableRowSkeleton() {
   return (
-    <TableRow className="w-full border-b border-gray-100 last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg">
+    <TableRow className="w-full border-b border-border last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg">
       {/* Customer Name and Image */}
       <TableCell className="relative overflow-hidden whitespace-nowrap py-3 pl-6 pr-3">
         <div className="flex items-center gap-3">
@@ -295,7 +295,7 @@ function TableRowSkeleton() {
 function InvoicesMobileSkeleton() {
   return (
     <Card className="mb-2 w-full p-4">
-      <div className="flex items-center justify-between border-b border-gray-100 pb-8">
+      <div className="flex items-center justify-between border-b border-border pb-8">
         <div className="flex items-center">
           <Skeleton className="mr-2 h-8 w-8 rounded-full" />
           <Skeleton className="h-6 w-16 rounded-md" />
@@ -320,7 +320,7 @@ function InvoicesTableSkeleton() {
   return (
     <div className="mt-6 flow-root">
       <div className="inline-block min-w-full align-middle">
-        <div className="rounded-lg bg-gray-50 p-2 md:pt-0">
+        <div className="rounded-lg bg-muted/50 p-2 md:pt-0">
           <div className="md:hidden">
             <InvoicesMobileSkeleton />
             <InvoicesMobileSkeleton />
@@ -329,7 +329,7 @@ function InvoicesTableSkeleton() {
             <InvoicesMobileSkeleton />
             <InvoicesMobileSkeleton />
           </div>
-          <Table className="hidden min-w-full text-gray-900 md:table">
+          <Table className="hidden min-w-full text-foreground md:table">
             <TableHeader className="rounded-lg text-left text-sm font-normal">
               <TableRow>
                 <TableHead className="px-4 py-5 font-medium sm:pl-6">
@@ -352,7 +352,7 @@ function InvoicesTableSkeleton() {
                 </TableHead>
               </TableRow>
             </TableHeader>
-            <TableBody className="bg-white">
+            <TableBody className="bg-card">
               <TableRowSkeleton />
               <TableRowSkeleton />
               <TableRowSkeleton />

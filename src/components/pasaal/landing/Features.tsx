@@ -1,76 +1,14 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { LayoutDashboard, Wallet, Truck, Smartphone, Globe } from 'lucide-react';
-import { cn } from '@/lib/utils';
-
-export const Features: React.FC = () => {
-    return (
-        <section id="features" className="py-24 bg-background relative overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                    <h2 className="text-3xl sm:text-5xl font-bold text-foreground mb-6">
-                        Everything you need to run your <span className="text-primary">Business</span>
-                    </h2>
-                    <p className="text-lg text-muted-foreground">
-                        Powerful tools designed specifically for the Nepali market. From local payments to logistics, we've got you covered.
-                    </p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[20rem]">
-                    {items.map((item, i) => (
-                        <BentoGridItem
-                            key={i}
-                            title={item.title}
-                            description={item.description}
-                            header={item.header}
-                            icon={item.icon}
-                            className={item.className}
-                        />
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
-};
-
-const BentoGridItem = ({
-    className,
-    title,
-    description,
-    header,
-    icon: Icon,
-}: {
-    className?: string;
-    title?: string | React.ReactNode;
-    description?: string | React.ReactNode;
-    header?: React.ReactNode;
-    icon?: React.ElementType;
-}) => {
-    return (
-        <div
-            className={cn(
-                "row-span-1 rounded-3xl group/bento hover:shadow-2xl hover:shadow-primary/5 transition duration-300 shadow-sm p-6 bg-card border border-border justify-between flex flex-col space-y-4",
-                className
-            )}
-        >
-            <div className="flex-1 w-full min-h-[10rem] rounded-xl bg-gradient-to-br from-muted/50 to-muted/20 border border-border/50 overflow-hidden relative group-hover/bento:border-primary/20 transition-colors">
-                {header}
-            </div>
-            <div className="group-hover/bento:translate-x-2 transition duration-200">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-primary">
-                    {Icon && <Icon className="h-5 w-5" />}
-                </div>
-                <div className="font-bold text-foreground mb-2 text-lg line-clamp-1">
-                    {title}
-                </div>
-                <div className="font-normal text-muted-foreground text-sm leading-relaxed line-clamp-3">
-                    {description}
-                </div>
-            </div>
-        </div>
-    );
-};
+import React from "react";
+import {
+    LayoutDashboard,
+    Wallet,
+    Truck,
+    Smartphone,
+    Globe,
+} from "lucide-react";
+import { cn } from "@/lib/utils";
 
 // --- Custom Visual Components (Skeletons) ---
 
@@ -166,37 +104,120 @@ const SkeletonGlobal = () => (
 const items = [
     {
         title: "Command Center",
-        description: "Drag-and-drop widgets to track sales, inventory, and staff performance in real-time.",
+        description:
+            "Drag-and-drop widgets to track sales, inventory, and staff performance in real-time.",
         header: <SkeletonDashboard />,
         icon: LayoutDashboard,
         className: "md:col-span-2",
     },
     {
         title: "Instant Payments",
-        description: "Direct integration with eSewa, Khalti, and FonePay. No coding required.",
+        description:
+            "Direct integration with eSewa, Khalti, and FonePay. No coding required.",
         header: <SkeletonPayments />,
         icon: Wallet,
         className: "md:col-span-1",
     },
     {
         title: "Smart Logistics",
-        description: "Automate delivery requests with Pathao and generate shipping labels instantly.",
+        description:
+            "Automate delivery requests with Pathao and generate shipping labels instantly.",
         header: <SkeletonLogistics />,
         icon: Truck,
         className: "md:col-span-1",
     },
     {
         title: "Mobile First Store",
-        description: "Your shop looks perfect on every device. Manage orders from your phone.",
+        description:
+            "Your shop looks perfect on every device. Manage orders from your phone.",
         header: <SkeletonMobile />,
         icon: Smartphone,
         className: "md:col-span-1",
     },
     {
         title: "Global Reach",
-        description: "Accept international cards and expand your Pasaal beyond borders.",
+        description:
+            "Accept international cards and expand your Pasaal beyond borders.",
         header: <SkeletonGlobal />,
         icon: Globe,
         className: "md:col-span-1",
     },
 ];
+
+const BentoGridItem = ({
+    className,
+    title,
+    description,
+    header,
+    icon: Icon,
+}: {
+    className?: string;
+    title?: string | React.ReactNode;
+    description?: string | React.ReactNode;
+    header?: React.ReactNode;
+    icon?: React.ElementType;
+}) => {
+    return (
+        <div
+            className={cn(
+                "row-span-1 rounded-3xl group/bento hover:shadow-2xl hover:shadow-primary/5 transition duration-300 shadow-sm p-6 bg-card border border-border justify-between flex flex-col space-y-4",
+                className
+            )}
+        >
+            <div className="flex-1 w-full min-h-[10rem] rounded-xl bg-gradient-to-br from-muted/50 to-muted/20 border border-border/50 overflow-hidden relative group-hover/bento:border-primary/20 transition-colors">
+                {header}
+            </div>
+            <div className="group-hover/bento:translate-x-2 transition duration-200">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-primary">
+                    {Icon && <Icon className="h-5 w-5" />}
+                </div>
+                <div className="font-bold text-foreground mb-2 text-lg">{title}</div>
+                <div className="font-normal text-muted-foreground text-sm leading-relaxed">
+                    {description}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export const Features: React.FC = () => {
+    return (
+        <section
+            id="features"
+            className="py-24 bg-background relative overflow-hidden scroll-mt-28"
+        >
+            {/* Background Gradients */}
+            <div className="absolute inset-0 h-full w-full bg-background bg-dot-pattern dark:bg-dot-pattern-dark opacity-[0.2] pointer-events-none" />
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute right-0 bottom-0 w-96 h-96 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="max-w-2xl mx-auto text-center mb-16">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+                        Powering Nepal's{" "}
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-600">
+                            Digital Economy
+                        </span>
+                    </h2>
+                    <p className="text-lg text-muted-foreground">
+                        We've built Pasaal with the specific needs of Nepali businesses in
+                        mind. Local payments, local logistics, world-class technology.
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
+                    {items.map((item, i) => (
+                        <BentoGridItem
+                            key={i}
+                            title={item.title}
+                            description={item.description}
+                            header={item.header}
+                            icon={item.icon}
+                            className={item.className}
+                        />
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};

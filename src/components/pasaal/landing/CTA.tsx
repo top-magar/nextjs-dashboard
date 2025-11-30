@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { ArrowRight, Sparkles } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import React from "react";
+import { ArrowRight, Sparkles } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export const CTA: React.FC = () => {
     return (
@@ -19,19 +19,27 @@ export const CTA: React.FC = () => {
                     <span className="text-primary">Dream Pasaal?</span>
                 </h2>
                 <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-                    Join 12,000+ Nepali businesses growing with us. No credit card required for the 14-day trial.
+                    Join 12,000+ Nepali businesses growing with us. No credit card
+                    required for the 14-day trial.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Link href="/sign-up">
-                        <Button size="lg" className="h-14 px-8 text-lg rounded-full shadow-xl shadow-primary/20 hover:shadow-primary/30 transition-all hover:-translate-y-1">
-                            Start Free Trial
-                        </Button>
-                    </Link>
-                    <Link href="mailto:sales@pasaal.com">
-                        <Button size="lg" variant="outline" className="h-14 px-8 text-lg rounded-full bg-background hover:bg-muted hover:-translate-y-1 transition-all">
+                    <Button
+                        size="lg"
+                        className="h-14 px-8 text-lg rounded-full shadow-xl shadow-primary/20 hover:shadow-primary/30 transition-all hover:-translate-y-1"
+                        asChild
+                    >
+                        <Link href="/register">Start Free Trial</Link>
+                    </Button>
+                    <Button
+                        size="lg"
+                        variant="outline"
+                        className="h-14 px-8 text-lg rounded-full bg-background hover:bg-muted hover:-translate-y-1 transition-all"
+                        asChild
+                    >
+                        <Link href="/contact">
                             Talk to Sales <ArrowRight className="ml-2 w-5 h-5" />
-                        </Button>
-                    </Link>
+                        </Link>
+                    </Button>
                 </div>
             </div>
         </section>

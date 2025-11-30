@@ -52,7 +52,7 @@ export default async function Page(props: {
                       </Avatar>
                       <div>
                         <p className="font-medium">{customer.name}</p>
-                        <p className="text-sm text-gray-500">{customer.email}</p>
+                        <p className="text-sm text-muted-foreground">{customer.email}</p>
                       </div>
                     </div>
                   </CardHeader>
@@ -72,8 +72,8 @@ export default async function Page(props: {
                 </Card>
               ))}
             </div>
-            <div className="bg-white rounded-lg border hidden md:block">
-              <Table className="min-w-full text-gray-900">
+            <div className="bg-card rounded-lg border hidden md:block">
+              <Table className="min-w-full text-foreground">
                 <TableHeader>
                   <TableRow className="hover:bg-transparent border-b">
                     <TableHead scope="col" className="px-4 py-5 font-medium sm:pl-6">
@@ -97,7 +97,7 @@ export default async function Page(props: {
                 <TableBody>
                   {customers.map((customer: FormattedCustomersTable) => (
                     <TableRow key={customer.id} className="group hover:bg-muted/50 border-b last:border-0">
-                      <TableCell className="whitespace-nowrap py-5 pl-4 pr-3 text-sm text-black sm:pl-6">
+                      <TableCell className="whitespace-nowrap py-5 pl-4 pr-3 text-sm text-foreground sm:pl-6">
                         <div className="flex items-center gap-3">
                           <Avatar className="h-7 w-7">
                             <AvatarImage src={customer.image_url} alt={`${customer.name}'s profile picture`} />

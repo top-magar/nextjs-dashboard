@@ -28,7 +28,7 @@ const notifications = [
   },
 ]
 
-const routes: Route[] = [
+export const routes: Route[] = [
   {
     id: "dashboard",
     title: "Dashboard",
@@ -53,7 +53,7 @@ const teams = [
   { name: "Acme Inc", logo: Logo, plan: "Dashboard" },
 ]
 
-const user = {
+export const user = {
   name: "User",
   email: "user@nextmail.com",
   avatar: "/avatars/shadcn.jpg",
