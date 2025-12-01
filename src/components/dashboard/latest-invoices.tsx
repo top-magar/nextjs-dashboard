@@ -25,7 +25,7 @@ export default async function LatestInvoices() {
       </CardHeader>
       <CardContent>
 
-        <div className="bg-white rounded-lg border">
+        <div className="bg-card rounded-lg border">
           <Table>
             <TableHeader>
               <TableRow className="hover:bg-transparent border-b">
@@ -50,7 +50,7 @@ export default async function LatestInvoices() {
                           <p className="truncate text-sm font-semibold md:text-base">
                             {invoice.name}
                           </p>
-                          <p className="hidden text-sm text-gray-500 sm:block">
+                          <p className="hidden text-sm text-muted-foreground sm:block">
                             {invoice.email}
                           </p>
                         </div>
@@ -70,8 +70,8 @@ export default async function LatestInvoices() {
           </Table>
         </div>
         <div className="flex items-center pb-2 pt-6">
-          <ArrowPathIcon className="h-5 w-5 text-gray-500" />
-          <h3 className="ml-2 text-sm text-gray-500 ">Updated just now</h3>
+          <ArrowPathIcon className="h-5 w-5 text-muted-foreground" />
+          <h3 className="ml-2 text-sm text-muted-foreground ">Updated just now</h3>
         </div>
 
       </CardContent>
