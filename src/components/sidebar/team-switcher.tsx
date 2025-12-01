@@ -24,7 +24,7 @@ type Team = {
   plan: string;
 };
 
-export function TeamSwitcher({ teams }: { teams: Team[] }) {
+export function StoreSwitcher({ teams }: { teams: Team[] }) {
   const { isMobile } = useSidebar();
   const [activeTeam, setActiveTeam] = React.useState(teams[0]);
 
@@ -60,7 +60,7 @@ export function TeamSwitcher({ teams }: { teams: Team[] }) {
             sideOffset={4}
           >
             <DropdownMenuLabel className="text-xs text-muted-foreground">
-              Teams
+              Stores
             </DropdownMenuLabel>
             {teams.map((team, index) => (
               <DropdownMenuItem
@@ -80,7 +80,7 @@ export function TeamSwitcher({ teams }: { teams: Team[] }) {
               <div className="flex size-6 items-center justify-center rounded-md border bg-background">
                 <Plus className="size-4" />
               </div>
-              <div className="font-medium text-muted-foreground">Add team</div>
+              <div className="font-medium text-muted-foreground">Add store</div>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

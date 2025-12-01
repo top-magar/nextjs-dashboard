@@ -35,7 +35,7 @@ export const Hero: React.FC = () => {
 
                 {/* Heading */}
                 <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-foreground mb-6 max-w-5xl animate-fade-in-up delay-100 leading-[1.1]">
-                    The Operating System for <br className="hidden md:block" />
+                    Powering the Future of <br className="hidden md:block" />
                     <span className="text-transparent bg-clip-text bg-gradient-to-br from-foreground to-foreground/60">
                         Nepali Commerce
                     </span>
@@ -108,14 +108,14 @@ export const Hero: React.FC = () => {
                                         <div
                                             key={item}
                                             className={`px-3 py-2 rounded-md text-sm font-medium cursor-pointer flex items-center gap-3 ${i === 0
-                                                    ? "bg-primary/10 text-primary"
-                                                    : "text-muted-foreground hover:bg-muted/50"
+                                                ? "bg-primary/10 text-primary"
+                                                : "text-muted-foreground hover:bg-muted/50"
                                                 }`}
                                         >
                                             <div
                                                 className={`w-2 h-2 rounded-full ${i === 0
-                                                        ? "bg-primary"
-                                                        : "bg-transparent border border-muted-foreground/30"
+                                                    ? "bg-primary"
+                                                    : "bg-transparent border border-muted-foreground/30"
                                                     }`}
                                             ></div>
                                             {item}
