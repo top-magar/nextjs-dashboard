@@ -58,7 +58,7 @@ export default async function DashboardLayout({
       />
       <SidebarInset>
         <Header user={user} />
-        <main className="flex flex-1 flex-col gap-4 p-4 pb-20 md:pb-4">
+        <main className="flex flex-1 flex-col gap-4 p-4 pt-2 md:pt-4 pb-20 md:pb-4">
           {children}
         </main>
         <MobileNav items={vendorNavigation.mobileNav} />
