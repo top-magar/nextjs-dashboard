@@ -159,7 +159,7 @@ function NavItem({
                       >
                         {subItem.icon && <span className="shrink-0">{subItem.icon}</span>}
                         <span className="flex-1">{subItem.title}</span>
-                        {subItem.badge !== undefined && subItem.badge > 0 && (
+                        {subItem.badge !== undefined && (typeof subItem.badge === 'number' ? subItem.badge > 0 : subItem.badge) && (
                           <Badge variant="secondary" className="ml-auto h-4 px-1 text-xs">
                             {subItem.badge}
                           </Badge>
