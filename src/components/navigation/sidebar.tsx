@@ -151,15 +151,16 @@ function NavItem({
                       <Link
                         href={subItem.href}
                         className={cn(
-                          'flex items-center rounded-md px-4 py-1.5 text-sm font-medium transition-colors',
+                          'flex items-center gap-2 rounded-md px-4 py-1.5 text-sm font-medium transition-colors',
                           pathname === subItem.href || pathname.startsWith(subItem.href + '/')
                             ? 'bg-sidebar-accent text-foreground font-semibold'
                             : 'text-muted-foreground hover:bg-sidebar-muted hover:text-foreground'
                         )}
                       >
+                        {subItem.icon && <span className="shrink-0">{subItem.icon}</span>}
                         <span className="flex-1">{subItem.title}</span>
-                        {subItem.badge && (
-                          <Badge variant="secondary" className="ml-2 h-4 px-1 text-xs">
+                        {subItem.badge !== undefined && subItem.badge > 0 && (
+                          <Badge variant="secondary" className="ml-auto h-4 px-1 text-xs">
                             {subItem.badge}
                           </Badge>
                         )}
