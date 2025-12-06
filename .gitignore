@@ -28,6 +28,10 @@ yarn-error.log*
 .env*.local
 .env
 
+# AWS credentials
+*_credentials.csv
+*_accessKeys.csv
+
 # vercel
 .vercel
 
