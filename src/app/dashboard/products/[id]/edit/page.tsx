@@ -34,12 +34,13 @@ import { productFormSchema, type ProductFormData } from '@/lib/validations/produ
 import { toast } from 'sonner';
 import type { Product } from '@/types/product';
 
-export default function EditProductPage({ params }: { params: { id: string } }) {
+export default function EditProductPage({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [product, setProduct] = useState<Product | null>(null);
+  const [productId, setProductId] = useState<string>('');
 
   const form = useForm<ProductFormData>({
     resolver: zodResolver(productFormSchema),
@@ -56,12 +57,15 @@ export default function EditProductPage({ params }: { params: { id: string } }) 
   });
 
   useEffect(() => {
-    fetchProduct();
-  }, [params.id]);
+    params.then(({ id }) => {
+      setProductId(id);
+      fetchProduct(id);
+    });
+  }, []);
 
-  const fetchProduct = async () => {
+  const fetchProduct = async (id: string) => {
     try {
-      const response = await fetch(`/api/products/${params.id}`);
+      const response = await fetch(`/api/products/${id}`);
       if (!response.ok) {
         throw new Error('Product not found');
       }
@@ -108,7 +112,7 @@ export default function EditProductPage({ params }: { params: { id: string } }) 
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(`/api/products/${params.id}`, {
+      const response = await fetch(`/api/products/${productId}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -135,7 +139,7 @@ export default function EditProductPage({ params }: { params: { id: string } }) 
 
     setIsDeleting(true);
     try {
-      const response = await fetch(`/api/products/${params.id}`, {
+      const response = await fetch(`/api/products/${productId}`, {
         method: 'DELETE',
       });
 

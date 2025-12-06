@@ -11,7 +11,7 @@ import { productFormSchema } from '@/lib/validations/product';
  */
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const session = await auth();
@@ -19,8 +19,9 @@ export async function GET(
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
+    const { id } = await params;
     const vendorId = session.user.id || 'default-vendor';
-    const product = await getProductById(params.id, vendorId);
+    const product = await getProductById(id, vendorId);
 
     if (!product) {
       return NextResponse.json({ error: 'Product not found' }, { status: 404 });
@@ -41,7 +42,7 @@ export async function GET(
  */
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const session = await auth();
@@ -49,6 +50,7 @@ export async function PATCH(
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
+    const { id } = await params;
     const vendorId = session.user.id || 'default-vendor';
     const body = await request.json();
 
@@ -62,7 +64,7 @@ export async function PATCH(
     }
 
     // Update product
-    const product = await updateProduct(params.id, vendorId, validation.data);
+    const product = await updateProduct(id, vendorId, validation.data);
 
     if (!product) {
       return NextResponse.json({ error: 'Product not found' }, { status: 404 });
@@ -95,7 +97,7 @@ export async function PATCH(
  */
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const session = await auth();
@@ -103,8 +105,9 @@ export async function DELETE(
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
+    const { id } = await params;
     const vendorId = session.user.id || 'default-vendor';
-    const deleted = await deleteProduct(params.id, vendorId);
+    const deleted = await deleteProduct(id, vendorId);
 
     if (!deleted) {
       return NextResponse.json({ error: 'Product not found' }, { status: 404 });
