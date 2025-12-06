@@ -67,26 +67,37 @@ export async function POST(request: NextRequest) {
   try {
     const session = await auth();
     if (!session?.user) {
+      console.error('Unauthorized: No session found');
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
     // TODO: Get vendor ID from session
     const vendorId = session.user.id || 'default-vendor';
+    console.log('Creating product for vendor:', vendorId);
 
     // Parse request body
     const body = await request.json();
+    console.log('Request body:', JSON.stringify(body, null, 2));
 
     // Validate input
     const validation = productFormSchema.safeParse(body);
     if (!validation.success) {
+      console.error('Validation failed:', validation.error.errors);
       return NextResponse.json(
-        { error: 'Invalid input', details: validation.error.errors },
+        { 
+          error: 'Invalid input', 
+          details: validation.error.errors,
+          message: validation.error.errors.map(e => `${e.path.join('.')}: ${e.message}`).join(', ')
+        },
         { status: 400 }
       );
     }
 
+    console.log('Validation passed, creating product...');
+
     // Create product
     const product = await createProduct(vendorId, validation.data);
+    console.log('Product created successfully:', product.id);
 
     return NextResponse.json(
       { product, message: 'Product created successfully' },
@@ -94,6 +105,7 @@ export async function POST(request: NextRequest) {
     );
   } catch (error) {
     console.error('Create product error:', error);
+    console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace');
     
     // Handle unique constraint violation (duplicate slug)
     if (error instanceof Error && error.message.includes('unique')) {
@@ -104,7 +116,10 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json(
-      { error: 'Failed to create product' },
+      { 
+        error: 'Failed to create product',
+        message: error instanceof Error ? error.message : 'Unknown error'
+      },
       { status: 500 }
     );
   }

@@ -1,13 +1,13 @@
 'use client';
 
-// Create product page
-// Created: December 5, 2025
+// Create product page - Redesigned workflow
+// Updated: December 6, 2025
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { ArrowLeft, Save } from 'lucide-react';
+import { ArrowLeft, Save, Upload as UploadIcon, CheckCircle2, AlertCircle } from 'lucide-react';
 import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
@@ -32,11 +32,12 @@ import {
 import { FileUpload } from '@/components/products/file-upload';
 import { productFormSchema, type ProductFormData } from '@/lib/validations/product';
 import { toast } from 'sonner';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 
 export default function CreateProductPage() {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [filePath, setFilePath] = useState<string>('');
+  const [uploadedFile, setUploadedFile] = useState<{ key: string; url: string } | null>(null);
 
   const form = useForm<ProductFormData>({
     resolver: zodResolver(productFormSchema),
@@ -62,30 +63,45 @@ export default function CreateProductPage() {
   };
 
   const handleFileUpload = (key: string, fileUrl: string) => {
-    setFilePath(key);
+    setUploadedFile({ key, url: fileUrl });
     form.setValue('filePath', key);
     toast.success('File uploaded successfully');
   };
 
   const onSubmit = async (data: ProductFormData) => {
+    // Validate that file is uploaded
+    if (!uploadedFile) {
+      toast.error('Please upload a product file first');
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
+      console.log('Submitting product data:', data);
+
       const response = await fetch('/api/products', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
 
+      const result = await response.json();
+      console.log('API response:', result);
+
       if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.error || 'Failed to create product');
+        throw new Error(result.error || 'Failed to create product');
       }
 
-      const result = await response.json();
-      toast.success('Product created successfully');
-      router.push('/dashboard/products');
+      toast.success('Product created successfully!');
+      
+      // Redirect after a short delay to show the success message
+      setTimeout(() => {
+        router.push('/dashboard/products');
+        router.refresh();
+      }, 500);
     } catch (error) {
+      console.error('Create product error:', error);
       toast.error(error instanceof Error ? error.message : 'Failed to create product');
     } finally {
       setIsSubmitting(false);
@@ -93,7 +109,7 @@ export default function CreateProductPage() {
   };
 
   return (
-    <div className="space-y-6 max-w-4xl">
+    <div className="space-y-6 max-w-4xl mx-auto pb-12">
       {/* Header */}
       <div className="flex items-center gap-4">
         <Button variant="ghost" size="icon" asChild>
@@ -109,19 +125,69 @@ export default function CreateProductPage() {
         </div>
       </div>
 
+      {/* Upload Status Alert */}
+      {uploadedFile && (
+        <Alert className="border-green-200 bg-green-50">
+          <CheckCircle2 className="h-4 w-4 text-green-600" />
+          <AlertDescription className="text-green-800">
+            File uploaded successfully! Now fill in the product details below.
+          </AlertDescription>
+        </Alert>
+      )}
+
+      {!uploadedFile && (
+        <Alert>
+          <AlertCircle className="h-4 w-4" />
+          <AlertDescription>
+            Start by uploading your product file (image or video). Then fill in the details.
+          </AlertDescription>
+        </Alert>
+      )}
+
       {/* Form */}
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          {/* Basic Information */}
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          {/* Step 1: File Upload */}
+          <div className="rounded-lg border bg-card p-6 space-y-4">
+            <div className="flex items-center gap-2">
+              <div className={`flex items-center justify-center w-8 h-8 rounded-full ${uploadedFile ? 'bg-green-100 text-green-600' : 'bg-primary text-primary-foreground'}`}>
+                {uploadedFile ? <CheckCircle2 className="h-5 w-5" /> : '1'}
+              </div>
+              <h2 className="text-lg font-semibold">Upload Product File</h2>
+            </div>
+            
+            <FormField
+              control={form.control}
+              name="filePath"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <FileUpload onUploadComplete={handleFileUpload} />
+                  </FormControl>
+                  <FormDescription>
+                    Upload images (JPG, PNG, GIF, WEBP, SVG) or videos (MP4, MOV, AVI, WEBM, MKV)
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+
+          {/* Step 2: Basic Information */}
           <div className="rounded-lg border bg-card p-6 space-y-6">
-            <h2 className="text-lg font-semibold">Basic Information</h2>
+            <div className="flex items-center gap-2">
+              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-muted text-muted-foreground">
+                2
+              </div>
+              <h2 className="text-lg font-semibold">Product Details</h2>
+            </div>
 
             <FormField
               control={form.control}
               name="title"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Product Title</FormLabel>
+                  <FormLabel>Product Title *</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="e.g., Premium UI Kit"
@@ -142,12 +208,39 @@ export default function CreateProductPage() {
               name="slug"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>URL Slug</FormLabel>
+                  <FormLabel>URL Slug *</FormLabel>
                   <FormControl>
                     <Input placeholder="premium-ui-kit" {...field} />
                   </FormControl>
                   <FormDescription>
-                    Used in the product URL. Auto-generated from title.
+                    Auto-generated from title. Used in product URL.
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="price"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Price (NPR) *</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="number"
+                      step="0.01"
+                      min="0"
+                      placeholder="999.00"
+                      {...field}
+                      onChange={(e) => {
+                        const value = e.target.value === '' ? 0 : parseFloat(e.target.value);
+                        field.onChange(value);
+                      }}
+                    />
+                  </FormControl>
+                  <FormDescription>
+                    Price in Nepali Rupees
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
@@ -169,7 +262,7 @@ export default function CreateProductPage() {
                     />
                   </FormControl>
                   <FormDescription>
-                    Max 500 characters. Shown in product listings.
+                    Brief summary shown in product listings (optional)
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
@@ -191,7 +284,7 @@ export default function CreateProductPage() {
                     />
                   </FormControl>
                   <FormDescription>
-                    Full product details shown on product page.
+                    Detailed information shown on product page (optional)
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
@@ -199,58 +292,14 @@ export default function CreateProductPage() {
             />
           </div>
 
-          {/* Pricing */}
+          {/* Step 3: Publishing */}
           <div className="rounded-lg border bg-card p-6 space-y-6">
-            <h2 className="text-lg font-semibold">Pricing</h2>
-
-            <FormField
-              control={form.control}
-              name="price"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Price (NPR)</FormLabel>
-                  <FormControl>
-                    <Input
-                      type="number"
-                      step="0.01"
-                      placeholder="999.00"
-                      {...field}
-                      onChange={(e) => field.onChange(parseFloat(e.target.value))}
-                    />
-                  </FormControl>
-                  <FormDescription>
-                    Price in Nepali Rupees (NPR)
-                  </FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-
-          {/* File Upload */}
-          <div className="rounded-lg border bg-card p-6 space-y-6">
-            <h2 className="text-lg font-semibold">Product File</h2>
-            <FormField
-              control={form.control}
-              name="filePath"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Upload File</FormLabel>
-                  <FormControl>
-                    <FileUpload onUploadComplete={handleFileUpload} />
-                  </FormControl>
-                  <FormDescription>
-                    Upload the digital product file (PDF, ZIP, PSD, etc.)
-                  </FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-
-          {/* Status */}
-          <div className="rounded-lg border bg-card p-6 space-y-6">
-            <h2 className="text-lg font-semibold">Publishing</h2>
+            <div className="flex items-center gap-2">
+              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-muted text-muted-foreground">
+                3
+              </div>
+              <h2 className="text-lg font-semibold">Publishing Options</h2>
+            </div>
 
             <FormField
               control={form.control}
@@ -265,14 +314,11 @@ export default function CreateProductPage() {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="draft">Draft</SelectItem>
-                      <SelectItem value="published">Published</SelectItem>
-                      <SelectItem value="archived">Archived</SelectItem>
+                      <SelectItem value="draft">Draft - Not visible to customers</SelectItem>
+                      <SelectItem value="published">Published - Live on store</SelectItem>
+                      <SelectItem value="archived">Archived - Hidden from store</SelectItem>
                     </SelectContent>
                   </Select>
-                  <FormDescription>
-                    Draft products are not visible to customers
-                  </FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
@@ -280,14 +326,23 @@ export default function CreateProductPage() {
           </div>
 
           {/* Actions */}
-          <div className="flex items-center gap-4">
-            <Button type="submit" disabled={isSubmitting}>
+          <div className="flex items-center gap-4 sticky bottom-0 bg-background py-4 border-t">
+            <Button 
+              type="submit" 
+              disabled={isSubmitting || !uploadedFile}
+              size="lg"
+            >
               <Save className="mr-2 h-4 w-4" />
-              {isSubmitting ? 'Creating...' : 'Create Product'}
+              {isSubmitting ? 'Creating Product...' : 'Create Product'}
             </Button>
-            <Button type="button" variant="outline" asChild>
+            <Button type="button" variant="outline" size="lg" asChild disabled={isSubmitting}>
               <Link href="/dashboard/products">Cancel</Link>
             </Button>
+            {!uploadedFile && (
+              <p className="text-sm text-muted-foreground">
+                Upload a file to enable product creation
+              </p>
+            )}
           </div>
         </form>
       </Form>
