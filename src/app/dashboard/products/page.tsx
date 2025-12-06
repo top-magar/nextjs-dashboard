@@ -1,10 +1,9 @@
 'use client';
 
-// Products list page with filters and search
-// Created: December 5, 2025
+// Products list page with Shopify-style modal
+// Updated: December 6, 2025
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { Plus, Search, Filter } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -16,6 +15,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { ProductCard } from '@/components/products/product-card';
+import { ProductFormModal } from '@/components/products/product-form-modal';
 import type { Product, ProductStatus } from '@/types/product';
 import { toast } from 'sonner';
 
@@ -25,6 +25,7 @@ export default function ProductsPage() {
   const [search, setSearch] = useState('');
   const [status, setStatus] = useState<ProductStatus | 'all'>('all');
   const [sortBy, setSortBy] = useState<'createdAt' | 'title' | 'price'>('createdAt');
+  const [showCreateModal, setShowCreateModal] = useState(false);
 
   useEffect(() => {
     fetchProducts();
@@ -74,13 +75,18 @@ export default function ProductsPage() {
             Manage your digital products
           </p>
         </div>
-        <Button asChild>
-          <Link href="/dashboard/products/create">
-            <Plus className="mr-2 h-4 w-4" />
-            Add Product
-          </Link>
+        <Button onClick={() => setShowCreateModal(true)}>
+          <Plus className="mr-2 h-4 w-4" />
+          Add Product
         </Button>
       </div>
+
+      {/* Create Product Modal */}
+      <ProductFormModal
+        open={showCreateModal}
+        onOpenChange={setShowCreateModal}
+        mode="create"
+      />
 
       {/* Filters */}
       <div className="flex flex-col sm:flex-row gap-4">
@@ -136,11 +142,9 @@ export default function ProductsPage() {
               ? 'No products found matching your filters.'
               : 'No products yet. Create your first product to get started.'}
           </p>
-          <Button asChild className="mt-4">
-            <Link href="/dashboard/products/create">
-              <Plus className="mr-2 h-4 w-4" />
-              Create Product
-            </Link>
+          <Button onClick={() => setShowCreateModal(true)} className="mt-4">
+            <Plus className="mr-2 h-4 w-4" />
+            Create Product
           </Button>
         </div>
       ) : (
