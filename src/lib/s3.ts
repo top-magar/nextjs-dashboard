@@ -85,24 +85,20 @@ export async function deleteFile(key: string): Promise<void> {
  */
 export function isFileTypeAllowed(fileType: string): boolean {
   const allowedTypes = [
-    // Documents
-    'application/pdf',
-    'application/zip',
-    'application/x-zip-compressed',
-    
-    // Design files
-    'image/vnd.adobe.photoshop',
-    'application/postscript', // .ai files
-    'application/octet-stream', // .sketch, .fig files
-    
-    // Audio
-    'audio/mpeg',
-    'audio/wav',
-    'audio/x-wav',
+    // Images
+    'image/jpeg',
+    'image/jpg',
+    'image/png',
+    'image/gif',
+    'image/webp',
+    'image/svg+xml',
     
     // Video
     'video/mp4',
     'video/quicktime', // .mov files
+    'video/x-msvideo', // .avi files
+    'video/webm',
+    'video/x-matroska', // .mkv files
   ];
 
   return allowedTypes.includes(fileType);

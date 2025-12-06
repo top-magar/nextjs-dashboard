@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
     // Validate file type
     if (!isFileTypeAllowed(fileType)) {
       return NextResponse.json(
-        { error: 'File type not allowed. Supported types: PDF, ZIP, PSD, AI, Sketch, Figma, MP3, WAV, MP4, MOV' },
+        { error: 'File type not allowed. Supported types: JPG, JPEG, PNG, GIF, WEBP, SVG, MP4, MOV, AVI, WEBM, MKV' },
         { status: 400 }
       );
     }

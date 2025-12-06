@@ -19,7 +19,7 @@ interface FileUploadProps {
 
 export function FileUpload({
   onUploadComplete,
-  accept = '.pdf,.zip,.psd,.ai,.sketch,.fig,.mp3,.wav,.mp4,.mov',
+  accept = 'image/*,video/*',
   maxSize = 104857600, // 100MB
   className,
 }: FileUploadProps) {
@@ -160,7 +160,7 @@ export function FileUpload({
               Click to upload or drag and drop
             </p>
             <p className="mt-1 text-xs text-muted-foreground">
-              PDF, ZIP, PSD, AI, Sketch, Figma, MP3, WAV, MP4, MOV (max {formatFileSize(maxSize)})
+              Images (JPG, PNG, GIF, WEBP, SVG) or Videos (MP4, MOV, AVI, WEBM, MKV) (max {formatFileSize(maxSize)})
             </p>
           </label>
         </div>
